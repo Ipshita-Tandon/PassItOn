@@ -1,0 +1,82 @@
+.footer {
+    background-color: #2563eb; /* Tailwind bg-blue-600 */
+    color: white;
+    padding: 2rem 0;
+    margin-top: 3.5rem; /* Equivalent to mt-14 */
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+  }
+  
+  @media (min-width: 768px) {
+    .footer-container {
+      flex-direction: row;
+      text-align: left;
+    }
+  }
+  
+  .footer-info {
+    margin-bottom: 1rem;
+  }
+  
+  .footer-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .footer-description {
+    font-size: 0.875rem;
+  }
+  
+  .footer-social {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .social-icon {
+    color: white;
+    font-size: 24px;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icon:hover {
+    color: #d1d5db; /* Tailwind gray-300 */
+  }
+  
+  .footer-subscribe {
+    margin-top: 1rem;
+  }
+  
+  .subscribe-form {
+    display: flex;
+  }
+  
+  .subscribe-input {
+    background-color: #e5e7eb; /* Tailwind gray-200 */
+    padding: 0.5rem 1rem;
+    border-radius: 6px 0 0 6px;
+    outline: none;
+    border: none;
+  }
+  
+  .subscribe-button {
+    background-color: #1f2937; /* Tailwind gray-800 */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0 6px 6px 0;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .subscribe-button:hover {
+    background-color: #374151; /* Tailwind gray-700 */
+  }
+  

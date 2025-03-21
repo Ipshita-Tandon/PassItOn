@@ -1,13 +1,18 @@
 import React from "react";
-import HomePage from "./pages/homepage.jsx"; // Import HomePage component
-// import Teammates from "./pages/teammates.jsx";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Explore from "./pages/explore.jsx";
+import HomePage from "./pages/homepage.jsx";
 
 function App() {
   return (
-    <div>
-      <HomePage />
-      {/* <Teammates/> */}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/categories" element={<Explore />} />
+        
+      </Routes>
+    </Router>
+
   );
 }
 
