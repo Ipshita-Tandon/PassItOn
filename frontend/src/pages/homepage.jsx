@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/navbar';
 import "./homepage.css";
+import Popular from './popular.jsx';
+import Footer from '../components/footer.jsx';
+
 
 const HomePage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -51,6 +54,8 @@ const HomePage = () => {
           </div>
         </div>
       </main>
+      <Popular/>
+      <Footer/>
     </div>
   );
 };
