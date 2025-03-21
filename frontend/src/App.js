@@ -1,14 +1,14 @@
 import React from "react";
-import HomePage from "./pages/homepage.jsx"; // Import HomePage component
 import Explore from "./pages/explore.jsx"
-// import Teammates from "./pages/teammates.jsx";
+import HomePage from "./pages/homepage.jsx";
+import Popular from "./pages/popular.jsx";
 
 function App() {
   return (
     <div>
       <HomePage />
       <Explore />
-      {/* <Teammates/> */}
+      <Popular />
     </div>
   );
 }
