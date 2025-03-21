@@ -9,10 +9,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/categories" element={<Explore />} />
-        
       </Routes>
     </Router>
-
   );
 }
 
