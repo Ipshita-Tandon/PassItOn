@@ -1,6 +1,6 @@
 .footer {
-    background-color: #2563eb; /* Tailwind bg-blue-600 */
-    color: white;
+    background-color: #EDE0D4; /* Tailwind bg-blue-600 */
+    color: black;
     padding: 2rem 0;
     margin-top: 3.5rem; /* Equivalent to mt-14 */
   }
@@ -41,13 +41,13 @@
   }
   
   .social-icon {
-    color: white;
+    color: black;
     font-size: 24px;
     transition: color 0.3s ease;
   }
   
   .social-icon:hover {
-    color: #d1d5db; /* Tailwind gray-300 */
+    color: black; /* Tailwind gray-300 */
   }
   
   .footer-subscribe {
