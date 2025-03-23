@@ -6,12 +6,12 @@ const AboutUs = () => {
   const creators = [
     {
       name: "Amishi Kumar",
-      imageURL: "https://i.pinimg.com/474x/9c/bd/74/9cbd744294b488939adc6b861898117a.jpg",
+      imageURL: 'images/amishi.jpeg',
       description: "Amishi is an enthusiastic tech developer, always eager to learn and a great team player. Skilled in Machine Learning, she enjoys tackling challenges with innovative solutions. Currently pursuing a B.Tech in CSE at IGDTUW, she is in her third year, constantly expanding her expertise in AI and advanced technologies."
     },
     {
       name: "Ipshita Tandon",
-      imageURL: "https://i.pinimg.com/474x/9c/bd/74/9cbd744294b488939adc6b861898117a.jpg",
+      imageURL: 'images/ipshita.jpeg',
       description: "Ipshita is an enthusiastic tech developer, always eager to learn and a great team player. Skilled in Machine Learning, she enjoys tackling challenges with innovative solutions. Currently pursuing a B.Tech in CSE at IGDTUW, she is in her third year, constantly expanding her expertise in AI and advanced technologies."
     },
     {
@@ -21,7 +21,7 @@ const AboutUs = () => {
     },
     {
       name: "Dwiti Narang",
-      imageURL: "https://i.pinimg.com/474x/9c/bd/74/9cbd744294b488939adc6b861898117a.jpg",
+      imageURL: 'images/dwiti.jpeg',
       description: "Dwiti is an enthusiastic tech developer, always eager to learn and a great team player. Skilled in Machine Learning, she excels in solving complex problems with innovative solutions. Currently pursuing a B.Tech in CSE at IGDTUW, she is in her third year, actively expanding her knowledge in AI and emerging technologies."
     }
   ];
