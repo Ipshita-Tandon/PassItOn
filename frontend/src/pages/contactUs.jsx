@@ -6,12 +6,17 @@ const ContactUs = () => {
   return (
     <div className="contact-container">
         <Navbar/>
-      <h2 className="contact-title">Contact Us</h2>
+        <div className="section-header">
+            <h1 className="title">
+              Get <span className="highlight">In Touch</span>
+            </h1>
+            <div className="divider"></div>
+          </div>
       
       <div className="contact-content">
         {/* Illustration */}
         <div className="contact-image-container">
-          <img src={"https://i.pinimg.com/736x/9f/ce/c2/9fcec281834ca98e08f1587e8943e983.jpg"} alt="contactus" className="contact-image" />
+          <img src={'images/contactus.png'} alt="contactus" className="contact-image" />
         </div>
         
         {/* Contact Form */}
