@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ChevronDown, Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Slider from "../components/slider";
+import Navbar from "../components/navbar.jsx"
 import "./explore.css";
 
 // Sample data for demonstration
@@ -9,44 +10,44 @@ const SAMPLE_ITEMS = [
   {
     id: 1,
     title: "Books",
-    image: "/lovable-uploads/5a421641-4080-4e28-8043-462fd12f3246.png",
+    image: "https://i.pinimg.com/736x/14/b6/70/14b670f183eb1a0ea98d5379f36edd86.jpg",
     category: "Course Books",
     price: 350,
   },
   {
     id: 2,
     title: "Stationery",
-    image: "/lovable-uploads/5a421641-4080-4e28-8043-462fd12f3246.png",
+    image: "https://i.pinimg.com/736x/fa/e0/35/fae03565cba45b139da0ed47446e52cc.jpg",
     category: "Stationery",
     price: 150,
   },
   {
     id: 3,
     title: "Novels",
-    image: "/lovable-uploads/5a421641-4080-4e28-8043-462fd12f3246.png",
+    image: "https://i.pinimg.com/736x/54/64/75/546475313f72f81c5d8a46109b285daa.jpg",
     category: "Novels",
     price: 250,
   },
   {
     id: 4,
     title: "PYQs",
-    image: "/lovable-uploads/5a421641-4080-4e28-8043-462fd12f3246.png",
+    image: "https://i.pinimg.com/474x/4f/b1/c6/4fb1c6e27677c331b3abbe8d609531fe.jpg",
     category: "PYQs",
     price: 120,
   },
   {
     id: 5,
     title: "Notes",
-    image: "/lovable-uploads/5a421641-4080-4e28-8043-462fd12f3246.png",
+    image: "https://i.pinimg.com/736x/21/f3/d5/21f3d51402da5ef7eca8455d3bdba3ac.jpg",
     category: "Notes",
     price: 180,
   },
   {
     id: 6,
-    title: "Roommates",
-    image: "/lovable-uploads/5a421641-4080-4e28-8043-462fd12f3246.png",
-    category: "Roommates",
-    price: 0,
+    title: "Teammates",
+    image: "https://i.pinimg.com/736x/2f/12/51/2f1251bc8166b2b7108c720b5e5ecc9f.jpg",
+    category: "Teammates",
+    price: 200,
   },
 ];
 
@@ -59,6 +60,7 @@ const SUBJECTS = ["Data Structures", "Algorithms", "Database Management", "Opera
 const CATEGORIES = ["Course Books", "Stationery", "Novels", "PYQs", "Notes"];
 
 const Explore = () => {
+
   const [priceRange, setPriceRange] = useState([100, 500]);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -148,7 +150,9 @@ const Explore = () => {
   };
 
   return (
+    
     <div className="explore-container">
+      <Navbar />
       <h1 className="explore-title">Explore By Category</h1>
       
       <div className="explore-content">
