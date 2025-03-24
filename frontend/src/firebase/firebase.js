@@ -8,12 +8,12 @@ import { getFirestore } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDB-cWeWdy3AWrAOXFTlB9GhL26YAtAtgY",
-  authDomain: "login-auth-dac22.firebaseapp.com",
-  projectId: "login-auth-dac22",
-  storageBucket: "login-auth-dac22.firebasestorage.app",
-  messagingSenderId: "33048482598",
-  appId: "1:33048482598:web:46ff709ef1fd5b944c67e7"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID
 };
 
 // Initialize Firebase
