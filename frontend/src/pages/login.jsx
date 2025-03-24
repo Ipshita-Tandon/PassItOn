@@ -42,7 +42,7 @@ const Login = () => {
         setIsLoggingIn(true);
         await signInWithEmailAndPassword(auth, formData.email, formData.password);
         toast.success("Logged in successfully!");
-        navigate('/'); 
+        navigate('/homepage'); 
       } catch (error) {
         console.error("Login error:", error);
         toast.error(error.message || "Failed to login. Please try again.");
