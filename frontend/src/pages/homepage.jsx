@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import Navbar from '../components/navbar';
+import Navbar from '../components/navbar.jsx';
 import "./homepage.css";
 import Popular from './popular.jsx';
+import Explore from './explore.jsx'
+import Testimonials from './testimonials.jsx';
 import Footer from '../components/footer.jsx';
+import ContactUs from './contactUs.jsx';
 
 
 const HomePage = () => {
@@ -54,7 +57,9 @@ const HomePage = () => {
           </div>
         </div>
       </main>
+      <Explore />
       <Popular/>
+      <Testimonials/>
       <Footer/>
     </div>
   );

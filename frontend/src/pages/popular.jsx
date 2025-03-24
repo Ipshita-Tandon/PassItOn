@@ -9,7 +9,7 @@ const Popular = () => {
       name: 'Engineering Graphics Drafter',
       description: 'For accurate drawings',
       price: '₹100',
-      imageUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
+      imageUrl: 'https://apollo.olx.in/v1/files/egnerwyiwex12-IN/image',
       imageAlt: 'Engineering Graphics Drafter'
     },
     {
@@ -17,7 +17,7 @@ const Popular = () => {
       name: 'Engineering Physics HK Malik',
       description: 'Physics Fundamentals',
       price: '₹200',
-      imageUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
+      imageUrl: 'https://m.media-amazon.com/images/I/71eV-iAVGwL._AC_UF1000,1000_QL80_.jpg',
       imageAlt: 'Engineering Physics Book'
     },
     {
@@ -25,7 +25,7 @@ const Popular = () => {
       name: 'Algorithms by Cormen',
       description: 'DSA Fundamentals',
       price: '₹300',
-      imageUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
+      imageUrl: 'https://m.media-amazon.com/images/I/51U7VqFciNL._AC_UF1000,1000_QL80_.jpg',
       imageAlt: 'Algorithms Book'
     },
     {
@@ -33,7 +33,7 @@ const Popular = () => {
       name: "Harry Potter Philosopher's Stone",
       description: '1st book of the series',
       price: '₹150',
-      imageUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
+      imageUrl: 'https://m.media-amazon.com/images/I/81q77Q39nEL.jpg',
       imageAlt: 'Harry Potter Book'
     }
   ];
