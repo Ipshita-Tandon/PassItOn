@@ -19,7 +19,7 @@ const Navbar = () => {
           
           {/* Nav Links */}
           <ul className="nav-links">
-            <li><a href="/" className="nav-link">Home</a></li>
+            <li><a href="/homepage" className="nav-link">Home</a></li>
             <li><a href="/categories" className="nav-link">Categories</a></li>
             <li><a href="/book-club" className="nav-link">Book Club</a></li>
             <li><a href="/find-teammates" className="nav-link">Find Teammates</a></li>
