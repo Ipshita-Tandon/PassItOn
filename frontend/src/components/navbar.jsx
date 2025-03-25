@@ -25,6 +25,7 @@ const Navbar = () => {
             <li><a href="/find-teammates" className="nav-link">Find Teammates</a></li>
             <li><a href="/contact" className="nav-link">Contact Us</a></li>
             <li><a href="/about" className="nav-link">About Us</a></li>
+            <li><a href="/techprofile" className="nav-link">MyProfile</a></li>
           </ul>
         </div>
         
