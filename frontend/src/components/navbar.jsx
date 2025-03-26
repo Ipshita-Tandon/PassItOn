@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useState } from "react";
 import { Search, User, ShoppingCart, Accessibility } from 'lucide-react';
+import ReadAloud from "./readAloud.js";
 import "../pages/homepage.css";
 
 const Navbar = () => {
+  const [accessibilityEnabled, setAccessibilityEnabled] = useState(false);
+
+  const toggleReadAloud = () => {
+    const newState = !accessibilityEnabled;
+    setAccessibilityEnabled(newState);
+  };
+
   return (
     <header className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
       <nav>
         <div className="nav-left">
-          {/* Logo */}
           <a href="/" className="logo-container">
             <div className="logo">
               <img 
@@ -16,8 +23,6 @@ const Navbar = () => {
               />
             </div>
           </a>
-          
-          {/* Nav Links */}
           <ul className="nav-links">
             <li><a href="/homepage" className="nav-link">Home</a></li>
             <li><a href="/categories" className="nav-link">Categories</a></li>
@@ -28,23 +33,33 @@ const Navbar = () => {
             <li><a href="/techprofile" className="nav-link">MyProfile</a></li>
           </ul>
         </div>
-        
+
         {/* Right side icons */}
         <div className="nav-icons">
-          <button className="icon-button">
+          <button className="icon-button" aria-label="Search">
             <Search size={24} />
           </button>
-          <button className="icon-button">
+          
+          {/* Toggle Read Aloud + Announce */}
+          <button
+            className="icon-button"
+            aria-label="Accessibility"
+            onClick={toggleReadAloud}
+          >
             <Accessibility size={24} />
           </button>
-          <button className="icon-button">
+
+          <button className="icon-button" aria-label="Shopping Cart">
             <ShoppingCart size={24} />
           </button>
-          <button className="icon-button">
+          <button className="icon-button" aria-label="User Profile">
             <User size={24} />
           </button>
         </div>
       </nav>
+
+      {/* Always load ReadAloud but control its activation */}
+      <ReadAloud accessibilityEnabled={accessibilityEnabled} />
     </header>
   );
 };
