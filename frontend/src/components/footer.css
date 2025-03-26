@@ -1,6 +1,11 @@
 .footer {
+
+    background-color: #ecbbb1; /* Tailwind bg-blue-600 */
+    color: white;
+
     background-color: #EDE0D4; /* Tailwind bg-blue-600 */
     color: black;
+
     padding: 2rem 0;
     margin-top: 3.5rem; /* Equivalent to mt-14 */
   }
