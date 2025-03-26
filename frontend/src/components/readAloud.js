@@ -1,23 +1,28 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const ReadAloud = ({ accessibilityEnabled }) => {
   const synth = window.speechSynthesis;
+  const prevState = useRef(null); // Track previous state
 
   useEffect(() => {
-    if (accessibilityEnabled) {
-        // Announce "Read Aloud Enabled" when toggled ON
-        const announceEnabled = new SpeechSynthesisUtterance("Read Aloud Enabled");
-        announceEnabled.lang = "en-US";
-        announceEnabled.rate = 1;
-        synth.speak(announceEnabled);
-    } else {
-        // Announce "Read Aloud Disabled" when toggled OFF
-        const announceDisabled = new SpeechSynthesisUtterance("Read Aloud Disabled");
-        announceDisabled.lang = "en-US";
-        announceDisabled.rate = 1;
-        synth.speak(announceDisabled);
-        return; // Stop further execution when disabled
+    // Avoid announcement on initial load
+    if (prevState.current === null) {
+      prevState.current = accessibilityEnabled;
+      return;
     }
+
+    // Speak announcement only when toggled
+    if (prevState.current !== accessibilityEnabled) {
+      const message = accessibilityEnabled ? "Read Aloud Enabled" : "Read Aloud Disabled";
+      const announcement = new SpeechSynthesisUtterance(message);
+      announcement.lang = "en-US";
+      announcement.rate = 1;
+      synth.speak(announcement);
+    }
+
+    prevState.current = accessibilityEnabled; // Update previous state
+
+    if (!accessibilityEnabled) return; // Stop execution if disabled
 
     const getText = (element) => {
       if (!element) return "";
@@ -31,7 +36,7 @@ const ReadAloud = ({ accessibilityEnabled }) => {
         element.getAttribute("aria-label") ||
         element.getAttribute("title") ||
         element.getAttribute("alt") ||
-        element.placeholder || // ✅ Read placeholder text
+        element.placeholder || 
         element.innerText?.trim() ||
         ""
       );
