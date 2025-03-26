@@ -8,11 +8,13 @@ import AboutUs from "./pages/aboutUs.jsx"
 import ContactUs from "./pages/contactUs.jsx";
 import Profile from "./pages/profile.jsx";
 import { Toaster } from "react-hot-toast";
+import ReadAloud from "./components/readAloud.js";
 
 function App() {
   return (
     
     <Router>
+      <ReadAloud />
       <Toaster />
       <Routes>
         <Route path="/" element={<Login />} />
