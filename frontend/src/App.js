@@ -12,6 +12,7 @@ import ContactUs from "./pages/contactUs.jsx";
 import Profile from "./pages/profile.jsx";
 import { Toaster } from "react-hot-toast";
 import ReadAloud from "./components/readAloud.js";
+import MyCart from "./pages/mycart.jsx";
 
 
 function App() {
@@ -35,6 +36,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/mycart" element={<MyCart/>} />
+      
 
       </Routes>
     </Router>
