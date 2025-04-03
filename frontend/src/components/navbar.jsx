@@ -1,15 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Search, User, ShoppingCart, Accessibility } from 'lucide-react';
 import ReadAloud from "./readAloud.js";
 import "../pages/homepage.css";
 
 const Navbar = () => {
   const [accessibilityEnabled, setAccessibilityEnabled] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const toggleReadAloud = () => {
-    const newState = !accessibilityEnabled;
-    setAccessibilityEnabled(newState);
+    setAccessibilityEnabled(!accessibilityEnabled);
   };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <header className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
@@ -30,7 +45,7 @@ const Navbar = () => {
             <li><a href="/find-teammates" className="nav-link">Find Teammates</a></li>
             <li><a href="/contact" className="nav-link">Contact Us</a></li>
             <li><a href="/about" className="nav-link">About Us</a></li>
-            <li><a href="/techprofile" className="nav-link">MyProfile</a></li>
+            {/* Removed MyProfile and MyCart from here */}
           </ul>
         </div>
 
@@ -40,7 +55,6 @@ const Navbar = () => {
             <Search size={24} />
           </button>
           
-          {/* Toggle Read Aloud + Announce */}
           <button
             className="icon-button"
             aria-label="Accessibility"
@@ -49,16 +63,30 @@ const Navbar = () => {
             <Accessibility size={24} />
           </button>
 
-          <button className="icon-button" aria-label="Shopping Cart">
-            <ShoppingCart size={24} />
-          </button>
-          <button className="icon-button" aria-label="User Profile">
-            <User size={24} />
-          </button>
+          {/* User dropdown container */}
+          <div className="user-dropdown-container" ref={dropdownRef}>
+            <button 
+              className="icon-button" 
+              aria-label="User Profile"
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            >
+              <User size={24} />
+            </button>
+
+            {isDropdownOpen && (
+              <div className="dropdown-menu">
+                <a href="/techprofile" className="dropdown-item">
+                  <User size={16} className="dropdown-icon" /> My Profile
+                </a>
+                <a href="/mycart" className="dropdown-item">
+                  <ShoppingCart size={16} className="dropdown-icon" /> My Cart
+                </a>
+              </div>
+            )}
+          </div>
         </div>
       </nav>
 
-      {/* Always load ReadAloud but control its activation */}
       <ReadAloud accessibilityEnabled={accessibilityEnabled} />
     </header>
   );
