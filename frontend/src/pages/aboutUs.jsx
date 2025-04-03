@@ -11,7 +11,7 @@ const AboutUs = () => {
     },
     {
       name: "Ipshita Tandon",
-      imageURL: 'images/ipshita.jpeg',
+      imageURL: 'images/Ipshita.jpg',
       description: "Ipshita is an enthusiastic tech developer, always eager to learn and a great team player. Skilled in Machine Learning, she enjoys tackling challenges with innovative solutions. Currently pursuing a B.Tech in CSE at IGDTUW, she is in her third year, constantly expanding her expertise in AI and advanced technologies."
     },
     {

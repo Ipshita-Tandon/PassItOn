@@ -26,14 +26,14 @@ const ContactUs = () => {
               <input
                 type="text"
                 placeholder="Name"
-                className="form-input"
+                className="forms-input"
               />
             </div>
             <div className="form-field">
               <input
                 type="email"
                 placeholder="Email"
-                className="form-input"
+                className="forms-input"
               />
             </div>
             <div className="form-field">
