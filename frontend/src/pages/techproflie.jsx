@@ -5,6 +5,8 @@ import EducationCard from '../components/educationCard';
 import { ArrowUpCircle, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import './techprofile.css';
+import Navbar from '../components/navbar';
+import Footer from '../components/footer';
 
 const TechProfile = () => {
   const profileData = {
@@ -53,7 +55,7 @@ const TechProfile = () => {
 
   return (
     <div className="tech-profile-container">
-      <header className="profile-header">
+      {/* <header className="profile-header">
         <div className="header-content">
           <div className="nav-container">
             <Link to="/" className="logo">TeamMate</Link>
@@ -65,7 +67,9 @@ const TechProfile = () => {
             </nav>
           </div>
         </div>
-      </header>
+      </header> */}
+
+      <Navbar/>
 
       <main className="main-content">
         <ProfileHeader {...profileData} />
@@ -107,15 +111,7 @@ const TechProfile = () => {
         </section>
       </main>
 
-      <footer className="page-footer">
-        <div className="footer-container">
-          <div className="footer-content">
-            <p className="copyright">
-              © {new Date().getFullYear()} Alex Johnson. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer/>
 
       <button onClick={scrollToTop} className="scroll-top-button" aria-label="Scroll to top">
         <ArrowUpCircle />

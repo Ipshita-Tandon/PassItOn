@@ -3,6 +3,7 @@ import './mycart.css';
 import CartItem from '../components/CartItem';
 import EmptyCart from '../components/EmptyCart';
 import OrderSummary from '../components/OrderSummary';
+import Navbar from '../components/navbar';
 
 const MyCart = () => {
   // Sample cart items data
@@ -58,6 +59,7 @@ const MyCart = () => {
 
   return (
     <div className="shopping-cart-container">
+      <Navbar/>
       <header className="cart-header">
         <h1>My eBay Cart</h1>
         <p>{cartItems.length} {cartItems.length === 1 ? 'item' : 'items'} in your cart</p>
