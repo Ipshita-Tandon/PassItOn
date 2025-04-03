@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="footer-container">
         {/* Left Section */}
         <div className="footer-info">
-          <h2 className="footer-title">Inception</h2>
+          <h2 className="footer-title">Pass it on</h2>
           <p className="footer-description">Efficiently manage and track your projects</p>
         </div>
 
