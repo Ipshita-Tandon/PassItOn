@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Eye, EyeOff } from 'lucide-react';
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { setDoc, doc } from 'firebase/firestore';
-import { auth, db } from '../firebase/firebase';
 import { toast } from 'react-hot-toast';
+import supabase from '../supabase/supabase';
 import './signUp.css';
 
 const SignUp = () => {
@@ -15,6 +14,7 @@ const SignUp = () => {
     password: ""
   });
   const [isSigningUp, setIsSigningUp] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,19 +25,19 @@ const SignUp = () => {
   };
 
   const validateForm = () => {
-    if(!formData.firstName.trim()) {
+    if (!formData.firstName.trim()) {
       toast.error("First Name is required");
       return false;
     }
-    if(!formData.email.trim()) {
+    if (!formData.email.trim()) {
       toast.error("Email is required");
       return false;
     }
-    if(!formData.password.trim()) {
+    if (!formData.password.trim()) {
       toast.error("Password is required");
       return false;
     }
-    if(formData.password.length < 8) {
+    if (formData.password.length < 8) {
       toast.error("Password must be at least 8 characters long");
       return false;
     }
@@ -46,49 +46,33 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(validateForm()){
+    if (validateForm()) {
       try {
         setIsSigningUp(true);
-        // Create user with email and password
-        const userCredential = await createUserWithEmailAndPassword(
-          auth, 
-          formData.email, 
-          formData.password
-        );
-        
-        const user = userCredential.user;
-        
-        // Add display name to the user profile
-        await updateProfile(user, {
-          displayName: `${formData.firstName} ${formData.lastName}`
-        });
-        
-        // Store additional user data in Firestore
-        await setDoc(doc(db, "Users", user.uid), {
-          email: user.email,
-          firstName: formData.firstName,
-          lastName: formData.lastName,
-          photo: ""
+
+        const { data, error } = await supabase.auth.signUp({
+          email: formData.email,
+          password: formData.password,
+          options: {
+            data: {
+              first_name: formData.firstName,
+              last_name: formData.lastName
+            }
+          }
         });
 
-        console.log("User Registered Successfully");
-        // console.log(user);
-        
-        toast.success("Account created successfully!", {
-            position: "top-center",
+        if (error) throw error;
+
+        toast.success("Account created successfully! Please check your email to confirm.", {
+          position: "top-center",
         });
-        
+
+        navigate('/homepage');
       } catch (error) {
         console.error("Signup error:", error);
-        if (error.code === "auth/email-already-in-use") {
-            toast.error("This email is already registered. Please log in or use another email.", {
-                position: "bottom-center", 
-            });
-        } else {
-            toast.error(error.message || "Failed to create account. Please try again.", {
-                position: "bottom-center",
-            });
-        }
+        toast.error(error.message || "Failed to create account. Please try again.", {
+          position: "bottom-center",
+        });
       } finally {
         setIsSigningUp(false);
       }
@@ -109,7 +93,7 @@ const SignUp = () => {
         <form onSubmit={handleSubmit} className="signup-form">
           <div className="form-group">
             <input
-              type="text" 
+              type="text"
               name="firstName"
               value={formData.firstName}
               onChange={handleChange}
@@ -121,7 +105,7 @@ const SignUp = () => {
 
           <div className="form-group">
             <input
-              type="text" 
+              type="text"
               name="lastName"
               value={formData.lastName}
               onChange={handleChange}
@@ -132,7 +116,7 @@ const SignUp = () => {
 
           <div className="form-group">
             <input
-              type="email" 
+              type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
@@ -162,7 +146,7 @@ const SignUp = () => {
           </div>
 
           <button
-            type="submit" 
+            type="submit"
             disabled={isSigningUp}
             className="submit-button"
           >
