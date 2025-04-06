@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Eye, EyeOff } from 'lucide-react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase/firebase';
+import { signInWithEmail } from '../supabase/supabaseAuth'; // Supabase auth
 import { toast } from 'react-hot-toast';
 import './login.css';
 
@@ -24,11 +23,11 @@ const Login = () => {
   };
 
   const validateForm = () => {
-    if(!formData.email.trim()) {
+    if (!formData.email.trim()) {
       toast.error("Email is required");
       return false;
     }
-    if(!formData.password.trim()) {
+    if (!formData.password.trim()) {
       toast.error("Password is required");
       return false;
     }
@@ -37,12 +36,14 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(validateForm()){
+    if (validateForm()) {
       try {
         setIsLoggingIn(true);
-        await signInWithEmailAndPassword(auth, formData.email, formData.password);
+        const { error } = await signInWithEmail(formData.email, formData.password);
+        if (error) throw error;
+
         toast.success("Logged in successfully!");
-        navigate('/homepage'); 
+        navigate('/homepage');
       } catch (error) {
         console.error("Login error:", error);
         toast.error(error.message || "Failed to login. Please try again.");
@@ -66,8 +67,8 @@ const Login = () => {
 
         <form onSubmit={handleSubmit} className="login-form">
           <div className="form-group">
-            <input 
-              type="email" 
+            <input
+              type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
@@ -77,7 +78,7 @@ const Login = () => {
           </div>
 
           <div className="form-group password-group">
-            <input 
+            <input
               type={showPassword ? "text" : "password"}
               name="password"
               value={formData.password}
@@ -85,7 +86,7 @@ const Login = () => {
               placeholder="Password"
               className="form-input"
             />
-            <button 
+            <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
               className="password-toggle"
@@ -96,22 +97,22 @@ const Login = () => {
 
           <div className="form-options">
             <label className="remember-label">
-              <input 
-                type="checkbox" 
+              <input
+                type="checkbox"
                 className="remember-checkbox"
               />
               <span>Remember me</span>
             </label>
-            <a 
-              href="/forgot-password" 
+            <a
+              href="/forgot-password"
               className="forgot-link"
             >
               Forgot Password?
             </a>
           </div>
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             disabled={isLoggingIn}
             className="submit-button"
           >
@@ -122,8 +123,8 @@ const Login = () => {
         <div className="signup-link-container">
           <p className="signup-text">
             Don't have an account?{' '}
-            <a 
-              href="/signup" 
+            <a
+              href="/signup"
               className="signup-link"
             >
               Sign Up
