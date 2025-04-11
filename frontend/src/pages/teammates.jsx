@@ -1,768 +1,339 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './teammates.css';
 
 const Teammates = () => {
-  // State management
+  // State for active tab
   const [activeTab, setActiveTab] = useState('projects');
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedSkills, setSelectedSkills] = useState([]);
-  const [showSkillsDropdown, setShowSkillsDropdown] = useState(false);
-  const [showProjectForm, setShowProjectForm] = useState(false);
-  const [bookmarkedProjects, setBookmarkedProjects] = useState([2, 4]);
-  const [openProjectId, setOpenProjectId] = useState(null);
-  const [showUserMenu, setShowUserMenu] = useState(false);
   
-  // Form state
-  const [newProject, setNewProject] = useState({
-    title: '',
-    description: '',
-    requiredSkills: [],
-    deadline: '',
-    teamSize: 3
-  });
-  const [newSkill, setNewSkill] = useState('');
-  
-  // Refs for outside click handling
-  const skillsDropdownRef = useRef(null);
-  const userMenuRef = useRef(null);
-  
-  // Mock data - Skills
-  const SKILLS = [
-    'React', 'JavaScript', 'Python', 'Java', 'C++', 'UI/UX Design', 
-    'Data Science', 'Machine Learning', 'Mobile Development', 'Node.js',
-    'Product Management', 'Blockchain', 'Cloud Computing', 'DevOps'
-  ];
-
-  // Mock data - Projects
+  // State for projects and students data
   const [projects, setProjects] = useState([
     {
       id: 1,
-      title: 'AI-Powered Study Assistant',
-      description: 'Building an AI assistant to help students optimize their study habits and improve learning outcomes.',
-      requiredSkills: ['Machine Learning', 'Python', 'UI/UX Design'],
-      deadline: '2023-12-15',
-      teamSize: 4,
-      currentMembers: 2,
-      postedBy: 'Alex Chen',
-      postedDate: '2023-10-20',
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
-      status: 'online',
-      bookmarked: false
+      author: "Alex Chen",
+      avatar: "https://randomuser.me/api/portraits/men/32.jpg",
+      date: "20/10/2023",
+      title: "AI-Powered Study Assistant",
+      description: "Building an AI assistant to help students optimize their study habits and improve learning outcomes.",
+      skills: ["Machine Learning", "Python", "UI/UX Design"],
+      members: "2/4",
+      deadline: "passed",
+      starred: false
     },
     {
       id: 2,
-      title: 'Campus Navigation App',
-      description: 'Creating a mobile app that helps new students navigate the campus efficiently and locate resources.',
-      requiredSkills: ['Mobile Development', 'UI/UX Design', 'React'],
-      deadline: '2023-12-01',
-      teamSize: 3,
-      currentMembers: 1,
-      postedBy: 'Jamie Smith',
-      postedDate: '2023-10-18',
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
-      status: 'busy',
-      bookmarked: true
+      author: "Jamie Smith",
+      avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+      date: "18/10/2023",
+      title: "Campus Navigation App",
+      description: "Creating a mobile app that helps new students navigate the campus efficiently and locate resources.",
+      skills: ["Mobile Development", "UI/UX Design", "React"],
+      members: "1/3",
+      deadline: "passed",
+      starred: true
     },
     {
       id: 3,
-      title: 'Peer-to-Peer Learning Platform',
-      description: 'Developing a platform where students can teach and learn from each other through short courses.',
-      requiredSkills: ['React', 'Node.js', 'Product Management'],
-      deadline: '2024-01-10',
-      teamSize: 5,
-      currentMembers: 3,
-      postedBy: 'Taylor Wong',
-      postedDate: '2023-10-15',
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
-      status: 'offline',
-      bookmarked: false
+      author: "Taylor Wong",
+      avatar: "https://randomuser.me/api/portraits/women/22.jpg",
+      date: "15/10/2023",
+      title: "Peer-to-Peer Learning Platform",
+      description: "Developing a platform where students can teach and learn from each other through short courses.",
+      skills: ["React", "Node.js", "Product Management"],
+      members: "3/5",
+      deadline: "passed",
+      starred: false
     },
     {
       id: 4,
-      title: 'Blockchain for Student Records',
-      description: 'Research project to explore using blockchain for secure, tamper-proof academic records.',
-      requiredSkills: ['Blockchain', 'JavaScript', 'Data Science'],
-      deadline: '2024-02-20',
-      teamSize: 3,
-      currentMembers: 1,
-      postedBy: 'Morgan Lee',
-      postedDate: '2023-10-10',
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
-      status: 'online',
-      bookmarked: true
+      author: "Morgan Lee",
+      avatar: "https://randomuser.me/api/portraits/men/45.jpg",
+      date: "10/10/2023",
+      title: "Blockchain for Student Records",
+      description: "Implementing a blockchain solution to securely store and verify academic records and credentials.",
+      skills: ["Blockchain", "Solidity", "Backend Development"],
+      members: "2/4",
+      deadline: "active",
+      starred: true
     }
   ]);
-
-  // Mock data - Students
-  const [students, setStudents] = useState([
-    {
-      id: 1,
-      name: 'Alex Chen',
-      skills: ['Machine Learning', 'Python', 'Data Science'],
-      major: 'Computer Science',
-      year: 'Junior',
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
-      status: 'online',
-      bio: 'Passionate about AI and its applications in education. Looking to collaborate on innovative projects!'
-    },
-    {
-      id: 2,
-      name: 'Jamie Smith',
-      skills: ['UI/UX Design', 'React', 'Mobile Development'],
-      major: 'Digital Media Design',
-      year: 'Senior',
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
-      status: 'busy',
-      bio: 'UI/UX designer with a focus on creating intuitive and accessible interfaces for educational platforms.'
-    },
-    {
-      id: 3,
-      name: 'Taylor Wong',
-      skills: ['React', 'Node.js', 'Product Management'],
-      major: 'Information Systems',
-      year: 'Graduate Student',
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
-      status: 'offline',
-      bio: 'Full-stack developer with 3 years of experience. Interested in EdTech and collaborative learning platforms.'
-    },
-    {
-      id: 4,
-      name: 'Morgan Lee',
-      skills: ['Blockchain', 'JavaScript', 'Cloud Computing'],
-      major: 'Computer Engineering',
-      year: 'Senior',
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
-      status: 'online',
-      bio: 'Exploring the intersection of blockchain technology and education. Looking for innovative hackathon teams!'
-    }
-  ]);
-
-  // Filtered data for display
-  const [filteredProjects, setFilteredProjects] = useState(projects);
-  const [filteredStudents, setFilteredStudents] = useState(students);
-
-  // Handle outside clicks for dropdowns
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (skillsDropdownRef.current && !skillsDropdownRef.current.contains(event.target)) {
-        setShowSkillsDropdown(false);
-      }
-      if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
-        setShowUserMenu(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
-  // Filter projects when search or skills selection changes
-  useEffect(() => {
-    let results = projects;
-    
-    if (searchTerm) {
-      results = results.filter(project => 
-        project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        project.description.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    }
-    
-    if (selectedSkills.length > 0) {
-      results = results.filter(project => 
-        selectedSkills.some(skill => project.requiredSkills.includes(skill))
-      );
-    }
-    
-    setFilteredProjects(results);
-  }, [searchTerm, selectedSkills, projects]);
-
-  // Filter students when search or skills selection changes
-  useEffect(() => {
-    let results = students;
-    
-    if (searchTerm) {
-      results = results.filter(student => 
-        student.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        student.bio.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    }
-    
-    if (selectedSkills.length > 0) {
-      results = results.filter(student => 
-        selectedSkills.some(skill => student.skills.includes(skill))
-      );
-    }
-    
-    setFilteredStudents(results);
-  }, [searchTerm, selectedSkills, students]);
-
-  // Toggle selection of skills for filtering
-  const toggleSkill = (skill) => {
-    setSelectedSkills(prev => 
-      prev.includes(skill) 
-        ? prev.filter(item => item !== skill)
-        : [...prev, skill]
-    );
+  
+  const [searchQuery, setSearchQuery] = useState('');
+  const [showPostModal, setShowPostModal] = useState(false);
+  const [newProject, setNewProject] = useState({
+    title: '',
+    description: '',
+    skills: [],
+    maxMembers: 4
+  });
+  const [skillInput, setSkillInput] = useState('');
+  
+  // Handle search input change
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
   };
-
-  // Toggle project bookmark status
-  const toggleBookmark = (projectId) => {
-    setProjects(prev => 
-      prev.map(project => 
-        project.id === projectId 
-          ? {...project, bookmarked: !project.bookmarked}
-          : project
-      )
-    );
-    
-    setBookmarkedProjects(prev => 
-      prev.includes(projectId)
-        ? prev.filter(id => id !== projectId)
-        : [...prev, projectId]
-    );
-    
-    alert(bookmarkedProjects.includes(projectId) 
-      ? "Project removed from bookmarks" 
-      : "Project added to bookmarks");
+  
+  // Filter projects based on search query
+  const filteredProjects = projects.filter(project => 
+    project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    project.skills.some(skill => skill.toLowerCase().includes(searchQuery.toLowerCase()))
+  );
+  
+  // Toggle star (favorite) status
+  const toggleStar = (id) => {
+    setProjects(projects.map(project => 
+      project.id === id ? {...project, starred: !project.starred} : project
+    ));
   };
-
-  // Add a new skill to project form
-  const addSkillToProject = () => {
-    if (newSkill && !newProject.requiredSkills.includes(newSkill)) {
-      setNewProject({
-        ...newProject,
-        requiredSkills: [...newProject.requiredSkills, newSkill]
-      });
-      setNewSkill('');
+  
+  // Express interest in a project
+  const expressInterest = (id) => {
+    alert(`You've expressed interest in project #${id}. The project creator will be notified.`);
+  };
+  
+  // Handle form input changes for new project
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewProject({...newProject, [name]: value});
+  };
+  
+  // Add a skill to the new project
+  const addSkill = () => {
+    if (skillInput.trim() && !newProject.skills.includes(skillInput.trim())) {
+      setNewProject({...newProject, skills: [...newProject.skills, skillInput.trim()]});
+      setSkillInput('');
     }
   };
-
-  // Remove a skill from project form
-  const removeSkillFromProject = (skill) => {
+  
+  // Remove a skill from the new project
+  const removeSkill = (skillToRemove) => {
     setNewProject({
-      ...newProject,
-      requiredSkills: newProject.requiredSkills.filter(s => s !== skill)
+      ...newProject, 
+      skills: newProject.skills.filter(skill => skill !== skillToRemove)
     });
   };
-
+  
   // Submit new project
-  const handleProjectSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+    const newId = projects.length > 0 ? Math.max(...projects.map(p => p.id)) + 1 : 1;
+    const today = new Date();
+    const formattedDate = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
     
-    // Validate form
-    if (!newProject.title || !newProject.description || newProject.requiredSkills.length === 0 || !newProject.deadline) {
-      alert("Please fill all required fields");
-      return;
-    }
-    
-    // Create new project and add to list
-    const newProjectObj = {
-      id: projects.length + 1,
-      ...newProject,
-      postedBy: 'You',
-      postedDate: new Date().toISOString().split('T')[0],
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
-      status: 'online',
-      currentMembers: 1,
-      bookmarked: false
+    const projectToAdd = {
+      id: newId,
+      author: "You", // In a real app, this would be the logged-in user
+      avatar: "https://randomuser.me/api/portraits/lego/1.jpg", // Placeholder
+      date: formattedDate,
+      title: newProject.title,
+      description: newProject.description,
+      skills: newProject.skills,
+      members: `1/${newProject.maxMembers}`,
+      deadline: "active",
+      starred: false
     };
     
-    setProjects(prev => [newProjectObj, ...prev]);
-    
-    // Reset form and hide it
+    setProjects([projectToAdd, ...projects]);
     setNewProject({
       title: '',
       description: '',
-      requiredSkills: [],
-      deadline: '',
-      teamSize: 3
+      skills: [],
+      maxMembers: 4
     });
-    
-    setShowProjectForm(false);
-    alert("Project created successfully!");
+    setShowPostModal(false);
   };
-
-  // Express interest in a project
-  const expressInterest = (projectId) => {
-    alert("Your interest has been sent to the project owner!");
-  };
-
-  // Calculate time remaining until deadline
-  const getTimeRemaining = (deadline) => {
-    const now = new Date();
-    const deadlineDate = new Date(deadline);
-    const diffTime = deadlineDate.getTime() - now.getTime();
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    
-    if (diffDays <= 0) return "Deadline passed";
-    if (diffDays === 1) return "1 day left";
-    return `${diffDays} days left`;
-  };
-
-  // Connect with a student
-  const connectWithStudent = (studentName) => {
-    alert(`Connection request sent to ${studentName}`);
-  };
-
+  
   return (
     <div className="teammates-container">
-      {/* Header */}
       <header className="teammates-header">
-        <div className="logo-container">
-          <h1 className="logo">TeamMate</h1>
-        </div>
-        
-        <div className="header-actions">
-          <button className="header-button notification-btn">
-            <span className="icon">🔔</span>
-          </button>
-          
-          <button className="header-button message-btn">
-            <span className="icon">✉️</span>
-          </button>
-          
-          <div className="user-profile" ref={userMenuRef}>
-            <button 
-              className="profile-button"
-              onClick={() => setShowUserMenu(!showUserMenu)}
-            >
-              <div className="profile-pic status-online">
-                <img 
-                  src="/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png" 
-                  alt="Your profile" 
-                />
-              </div>
-              <span className="icon dropdown-arrow">▼</span>
-            </button>
-            
-            {showUserMenu && (
-              <div className="user-menu">
-                <div className="user-menu-header">
-                  <p className="user-name">Jordan Smith</p>
-                  <p className="user-email">jordan@university.edu</p>
-                </div>
-                <button className="user-menu-item">
-                  <span className="icon">👤</span>
-                  <span>Profile</span>
-                </button>
-                <button className="user-menu-item">
-                  <span className="icon">🚪</span>
-                  <span>Sign out</span>
-                </button>
-              </div>
-            )}
+        <div className="logo">TeamMate</div>
+        <div className="header-icons">
+          <span className="icon notification">🔔</span>
+          <span className="icon message">✉️</span>
+          <div className="profile">
+            <span>You</span>
+            <span className="dropdown-icon">▼</span>
           </div>
         </div>
       </header>
       
-      {/* Hero section */}
       <section className="hero-section">
-        <div className="hero-content">
-          <h1>Find the perfect teammates for your next project</h1>
-          <p>
-            Connect with talented students, collaborate on innovative ideas, and build amazing projects together.
-          </p>
-          
-          <div className="hero-buttons">
-            <button 
-              className="primary-button"
-              onClick={() => setShowProjectForm(true)}
-            >
-              <span className="icon">➕</span>
-              Post a Project
-            </button>
-            
-            <button 
-              className="secondary-button"
-              onClick={() => setActiveTab('students')}
-            >
-              <span className="icon">👥</span>
-              Find Students
-            </button>
-            
-            <button 
-              className="secondary-button"
-              onClick={() => setActiveTab('projects')}
-            >
-              <span className="icon">📋</span>
-              Browse Projects
-            </button>
-          </div>
+        <h1>Find the perfect teammates for your next project</h1>
+        <p>Connect with talented students, collaborate on innovative ideas, and build amazing projects together.</p>
+        
+        <div className="action-buttons">
+          <button className="post-button" onClick={() => setShowPostModal(true)}>
+            <span className="plus-icon">+</span> Post a Project
+          </button>
+          <button className="find-button">
+            <span className="people-icon">👥</span> Find Students
+          </button>
+          <button className="browse-button">
+            <span className="clipboard-icon">📋</span> Browse Projects
+          </button>
         </div>
       </section>
       
-      {/* Main content */}
-      <main className="main-content">
-        {/* Tabs */}
-        <div className="tabs">
-          <button 
-            className={`tab ${activeTab === 'projects' ? 'active' : ''}`}
-            onClick={() => setActiveTab('projects')}
-          >
-            Projects
-          </button>
-          
-          <button 
-            className={`tab ${activeTab === 'students' ? 'active' : ''}`}
-            onClick={() => setActiveTab('students')}
-          >
-            Students
-          </button>
-        </div>
-        
-        {/* Search and filters */}
-        <div className="search-filters">
-          <div className="search-container">
-            <span className="search-icon">🔍</span>
-            <input
-              type="text"
-              placeholder={`Search ${activeTab === 'projects' ? 'projects' : 'students'}...`}
-              className="search-input"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </div>
-          
-          <div className="filter-container" ref={skillsDropdownRef}>
-            <button 
-              className="filter-button"
-              onClick={() => setShowSkillsDropdown(!showSkillsDropdown)}
-            >
-              <span className="icon">🔍</span>
-              Filter by Skills
-              <span className="dropdown-arrow">▼</span>
-            </button>
-            
-            {showSkillsDropdown && (
-              <div className="skills-dropdown">
-                {SKILLS.map((skill) => (
-                  <button
-                    key={skill}
-                    className={`skill-option ${selectedSkills.includes(skill) ? 'selected' : ''}`}
-                    onClick={() => toggleSkill(skill)}
-                  >
-                    <span>{skill}</span>
-                    {selectedSkills.includes(skill) && <span className="check-icon">✓</span>}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-          
-          {selectedSkills.length > 0 && (
-            <button 
-              className="clear-filters"
-              onClick={() => setSelectedSkills([])}
-            >
-              Clear filters ✕
-            </button>
-          )}
-        </div>
-        
-        {/* Selected skills display */}
-        {selectedSkills.length > 0 && (
-          <div className="selected-skills">
-            {selectedSkills.map(skill => (
-              <span key={skill} className="skill-tag">
-                {skill}
-                <button onClick={() => toggleSkill(skill)} className="remove-skill">
-                  ✕
-                </button>
-              </span>
-            ))}
-          </div>
-        )}
-        
-        {/* Projects list */}
-        {activeTab === 'projects' && (
-          <>
-            {filteredProjects.length === 0 ? (
-              <div className="empty-state">
-                <p>No projects found matching your criteria</p>
-                <button 
-                  className="reset-button"
-                  onClick={() => {
-                    setSearchTerm('');
-                    setSelectedSkills([]);
-                  }}
-                >
-                  Clear search and filters
-                </button>
-              </div>
-            ) : (
-              <div className="projects-grid">
-                {filteredProjects.map((project) => (
-                  <div key={project.id} className="project-card">
-                    <div className="project-header">
-                      <div className="project-poster">
-                        <div className={`profile-pic status-${project.status}`}>
-                          <img 
-                            src={project.avatarUrl} 
-                            alt={project.postedBy} 
-                          />
-                        </div>
-                        <div>
-                          <p className="poster-name">{project.postedBy}</p>
-                          <p className="post-date">Posted on {new Date(project.postedDate).toLocaleDateString()}</p>
-                        </div>
-                      </div>
-                      <button 
-                        className={`bookmark-button ${bookmarkedProjects.includes(project.id) ? 'bookmarked' : ''}`} 
-                        onClick={() => toggleBookmark(project.id)}
-                        aria-label={bookmarkedProjects.includes(project.id) ? "Remove bookmark" : "Bookmark project"}
-                      >
-                        {bookmarkedProjects.includes(project.id) ? '★' : '☆'}
-                      </button>
-                    </div>
-                    
-                    <h3 className="project-title">{project.title}</h3>
-                    <p className="project-description">{project.description}</p>
-                    
-                    <div className="project-skills">
-                      <p className="section-label">Required Skills</p>
-                      <div className="skills-list">
-                        {project.requiredSkills.map((skill) => (
-                          <span key={skill} className="skill-tag small">
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <div className="project-meta">
-                      <div className="meta-item">
-                        <span className="icon">👥</span>
-                        <span>{project.currentMembers}/{project.teamSize} members</span>
-                      </div>
-                      <div className="meta-item">
-                        <span className="icon">⏱️</span>
-                        <span>{getTimeRemaining(project.deadline)}</span>
-                      </div>
-                    </div>
-                    
-                    <div className="project-actions">
-                      <button 
-                        className="primary-button"
-                        onClick={() => expressInterest(project.id)}
-                      >
-                        Express Interest
-                      </button>
-                      <button 
-                        className="secondary-button"
-                        onClick={() => setOpenProjectId(openProjectId === project.id ? null : project.id)}
-                      >
-                        Details
-                      </button>
-                    </div>
-                    
-                    {openProjectId === project.id && (
-                      <div className="project-details">
-                        <div className="detail-item">
-                          <p className="detail-label">Deadline</p>
-                          <p className="detail-value">{new Date(project.deadline).toLocaleDateString()}</p>
-                        </div>
-                        
-                        <div className="detail-item">
-                          <p className="detail-label">Team Size</p>
-                          <p className="detail-value">{project.teamSize} members needed</p>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            )}
-          </>
-        )}
-        
-        {/* Students list */}
-        {activeTab === 'students' && (
-          <>
-            {filteredStudents.length === 0 ? (
-              <div className="empty-state">
-                <p>No students found matching your criteria</p>
-                <button 
-                  className="reset-button"
-                  onClick={() => {
-                    setSearchTerm('');
-                    setSelectedSkills([]);
-                  }}
-                >
-                  Clear search and filters
-                </button>
-              </div>
-            ) : (
-              <div className="students-grid">
-                {filteredStudents.map((student) => (
-                  <div key={student.id} className="student-card">
-                    <div className="student-header">
-                      <div className={`profile-pic large status-${student.status}`}>
-                        <img 
-                          src={student.avatarUrl} 
-                          alt={student.name} 
-                        />
-                      </div>
-                      <div>
-                        <h3 className="student-name">{student.name}</h3>
-                        <p className="student-info">{student.major}, {student.year}</p>
-                      </div>
-                    </div>
-                    
-                    <p className="student-bio">{student.bio}</p>
-                    
-                    <div className="student-skills">
-                      <p className="section-label">Skills</p>
-                      <div className="skills-list">
-                        {student.skills.map((skill) => (
-                          <span key={skill} className="skill-tag small">
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <button 
-                      className="primary-button full-width"
-                      onClick={() => connectWithStudent(student.name)}
-                    >
-                      Connect
-                    </button>
-                  </div>
-                ))}
-              </div>
-            )}
-          </>
-        )}
-      </main>
+      <nav className="tabs">
+        <button 
+          className={activeTab === 'projects' ? 'active' : ''} 
+          onClick={() => setActiveTab('projects')}
+        >
+          Projects
+        </button>
+        <button 
+          className={activeTab === 'students' ? 'active' : ''} 
+          onClick={() => setActiveTab('students')}
+        >
+          Students
+        </button>
+      </nav>
       
-      {/* Project form modal */}
-      {showProjectForm && (
-        <div className="modal-overlay">
-          <div className="modal">
-            <div className="modal-header">
-              <h2>Post a New Project</h2>
-              <button className="close-button" onClick={() => setShowProjectForm(false)}>
-                ✕
+      <div className="search-filter">
+        <div className="search-container">
+          <span className="search-icon">🔍</span>
+          <input 
+            type="text" 
+            placeholder="Search projects..." 
+            value={searchQuery}
+            onChange={handleSearchChange}
+          />
+        </div>
+        
+        <div className="filter-container">
+          <span className="filter-icon">🔍</span>
+          <span>Filter by Skills</span>
+          <span className="dropdown-icon">▼</span>
+        </div>
+      </div>
+      
+      <div className="projects-grid">
+        {filteredProjects.map(project => (
+          <div className="project-card" key={project.id}>
+            <div className="project-header">
+              <div className="author-info">
+                <img src={project.avatar} alt={project.author} className="avatar" />
+                <div>
+                  <div className="author-name">{project.author}</div>
+                  <div className="post-date">Posted on {project.date}</div>
+                </div>
+              </div>
+              <button 
+                className={`star-button ${project.starred ? 'starred' : ''}`}
+                onClick={() => toggleStar(project.id)}
+              >
+                {project.starred ? '⭐' : '☆'}
               </button>
             </div>
             
-            <form onSubmit={handleProjectSubmit}>
+            <h2 className="project-title">{project.title}</h2>
+            <p className="project-description">{project.description}</p>
+            
+            <div className="skills-section">
+              <h3 className="skills-title">REQUIRED SKILLS</h3>
+              <div className="skills-tags">
+                {project.skills.map((skill, index) => (
+                  <span className="skill-tag" key={index}>{skill}</span>
+                ))}
+              </div>
+            </div>
+            
+            <div className="project-footer">
+              <div className="members-info">
+                <span className="members-icon">👥</span>
+                <span>{project.members} members</span>
+              </div>
+              <div className="deadline-info">
+                <span className="deadline-icon">⏱️</span>
+                <span>Deadline {project.deadline}</span>
+              </div>
+            </div>
+            
+            <div className="action-buttons">
+              <button 
+                className="express-interest-button"
+                onClick={() => expressInterest(project.id)}
+              >
+                Express Interest
+              </button>
+              <button className="details-button">Details</button>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      {showPostModal && (
+        <div className="modal-overlay">
+          <div className="post-modal">
+            <div className="modal-header">
+              <h2>Post a New Project</h2>
+              <button className="close-button" onClick={() => setShowPostModal(false)}>×</button>
+            </div>
+            
+            <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <label htmlFor="title">Project Title *</label>
-                <input
-                  type="text"
-                  id="title"
-                  value={newProject.title}
-                  onChange={(e) => setNewProject({...newProject, title: e.target.value})}
+                <label>Project Title</label>
+                <input 
+                  type="text" 
+                  name="title" 
+                  value={newProject.title} 
+                  onChange={handleInputChange}
                   required
                 />
               </div>
               
               <div className="form-group">
-                <label htmlFor="description">Project Description *</label>
-                <textarea
-                  id="description"
-                  rows={4}
-                  value={newProject.description}
-                  onChange={(e) => setNewProject({...newProject, description: e.target.value})}
+                <label>Description</label>
+                <textarea 
+                  name="description" 
+                  value={newProject.description} 
+                  onChange={handleInputChange}
                   required
-                />
+                ></textarea>
               </div>
               
               <div className="form-group">
-                <label>Required Skills *</label>
-                <div className="skill-input-container">
-                  <input
-                    type="text"
-                    list="skills-list"
+                <label>Required Skills</label>
+                <div className="skills-input">
+                  <input 
+                    type="text" 
+                    value={skillInput} 
+                    onChange={(e) => setSkillInput(e.target.value)}
                     placeholder="Add a skill"
-                    value={newSkill}
-                    onChange={(e) => setNewSkill(e.target.value)}
                   />
-                  <datalist id="skills-list">
-                    {SKILLS.filter(skill => !newProject.requiredSkills.includes(skill)).map((skill) => (
-                      <option key={skill} value={skill} />
-                    ))}
-                  </datalist>
-                  <button
-                    type="button"
-                    className="add-skill-button"
-                    onClick={addSkillToProject}
-                  >
-                    Add
-                  </button>
+                  <button type="button" onClick={addSkill}>Add</button>
                 </div>
-                
-                {newProject.requiredSkills.length > 0 && (
-                  <div className="selected-skills">
-                    {newProject.requiredSkills.map((skill) => (
-                      <span key={skill} className="skill-tag">
-                        {skill}
-                        <button 
-                          type="button" 
-                          onClick={() => removeSkillFromProject(skill)} 
-                          className="remove-skill"
-                        >
-                          ✕
-                        </button>
-                      </span>
-                    ))}
-                  </div>
-                )}
+                <div className="skills-tags">
+                  {newProject.skills.map((skill, index) => (
+                    <span className="skill-tag" key={index}>
+                      {skill}
+                      <button type="button" onClick={() => removeSkill(skill)}>×</button>
+                    </span>
+                  ))}
+                </div>
               </div>
               
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="deadline">Deadline *</label>
-                  <input
-                    type="date"
-                    id="deadline"
-                    value={newProject.deadline}
-                    onChange={(e) => setNewProject({...newProject, deadline: e.target.value})}
-                    required
-                  />
-                </div>
-                
-                <div className="form-group">
-                  <label htmlFor="teamSize">Team Size</label>
-                  <select
-                    id="teamSize"
-                    value={newProject.teamSize}
-                    onChange={(e) => setNewProject({...newProject, teamSize: parseInt(e.target.value)})}
-                  >
-                    {[2, 3, 4, 5, 6, 7, 8].map(size => (
-                      <option key={size} value={size}>{size} members</option>
-                    ))}
-                  </select>
-                </div>
+              <div className="form-group">
+                <label>Maximum Team Size</label>
+                <input 
+                  type="number" 
+                  name="maxMembers" 
+                  value={newProject.maxMembers} 
+                  onChange={handleInputChange}
+                  min="2"
+                  max="10"
+                  required
+                />
               </div>
               
               <div className="form-actions">
-                <button
-                  type="button"
-                  className="secondary-button"
-                  onClick={() => setShowProjectForm(false)}
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="primary-button"
-                >
-                  Post Project
-                </button>
+                <button type="button" onClick={() => setShowPostModal(false)}>Cancel</button>
+                <button type="submit">Post Project</button>
               </div>
             </form>
           </div>
         </div>
       )}
-      
-      {/* Footer */}
-      <footer className="footer">
-        <p>© 2023 TeamMate - Connect, Collaborate, Create</p>
-      </footer>
     </div>
   );
 };

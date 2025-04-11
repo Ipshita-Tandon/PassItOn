@@ -4,7 +4,7 @@ import Login from "./pages/login.jsx";
 import SignUp from "./pages/signUp.jsx";
 import Explore from "./pages/explore.jsx";
 import HomePage from "./pages/homepage.jsx";
-
+import Teammates from "./pages/teammates.jsx";
 import TechProfile from "./pages/techproflie.jsx";
 
 import AboutUs from "./pages/aboutUs.jsx"
@@ -25,6 +25,8 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/homepage" element={<HomePage />} />
         <Route path="/categories" element={<Explore />} />
+        <Route path="/teammates" element={<Teammates />} />
+
 
         <Route path="/techprofile" element={<TechProfile/>} />
         
