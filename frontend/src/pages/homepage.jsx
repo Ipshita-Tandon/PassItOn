@@ -6,7 +6,7 @@ import Explore from './explore.jsx'
 import Testimonials from './testimonials.jsx';
 import Footer from '../components/footer.jsx';
 import ContactUs from './contactUs.jsx';
-
+import Doyouknowus from './Doyouknowus.jsx';
 
 const HomePage = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -60,6 +60,7 @@ const HomePage = () => {
       <Explore />
       <Popular/>
       <Testimonials/>
+      <Doyouknowus/>
       <Footer/>
     </div>
   );
