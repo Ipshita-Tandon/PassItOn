@@ -143,11 +143,8 @@ const Explore = () => {
   };
 
   const goToExplore = (category) => {
-    // In a real application, we would navigate to a filtered view
-    console.log(`Exploring ${category}`);
-    // For demo purposes, we'll just show an alert
-    alert(`Exploring ${category}`);
-  };
+    navigate(`/search`);
+  };  
 
   return (
     

@@ -1,0 +1,147 @@
+// Sample book data
+export const sampleData = [
+    {
+      id: 1,
+      title: 'ENGINEERING CHEMISTRY',
+      author: 'SUNITA RATTAN',
+      price: 300,
+      image: 'https://m.media-amazon.com/images/I/81I71gGeQaL._AC_UF1000,1000_QL80_.jpg',
+      category: 'Course Books',
+      subject: 'Chemistry',
+      branch: 'Engineering',
+      semester: '1',
+      isFavorite: false
+    },
+    {
+      id: 2,
+      title: 'APPLIED MATHEMATICS',
+      author: 'LARRY A. GLASGOW',
+      price: 600,
+      image: 'https://m.media-amazon.com/images/I/71mPGVukgXL._AC_UF1000,1000_QL80_.jpg',
+      category: 'Course Books',
+      subject: 'Mathematics',
+      branch: 'Science',
+      semester: '2',
+      isFavorite: false
+    },
+    {
+      id: 3,
+      title: 'BASIC ELECTRICAL ENGINEERING',
+      author: 'Dr. D. M. PATEL',
+      price: 250,
+      image: 'https://padhegaindia.in/wp-content/uploads/2024/09/9788121908719-1.webp',
+      category: 'Course Books',
+      subject: 'Electrical',
+      branch: 'Engineering',
+      semester: '1',
+      isFavorite: false
+    },
+    {
+      id: 4,
+      title: 'COMPUTER SCIENCE FUNDAMENTALS',
+      author: 'JOHN SMITH',
+      price: 450,
+      image: 'https://m.media-amazon.com/images/I/61JmEmSYtIL._AC_UF1000,1000_QL80_.jpg',
+      category: 'Course Books',
+      subject: 'Computer Science',
+      branch: 'Engineering',
+      semester: '1',
+      isFavorite: false
+    },
+    {
+      id: 5,
+      title: 'INTRODUCTION TO PSYCHOLOGY',
+      author: 'SARAH JOHNSON',
+      price: 350,
+      image: 'https://covers.flatworldknowledge.com/intro_psych_4/cover.png',
+      category: 'Course Books',
+      subject: 'Psychology',
+      branch: 'Arts',
+      semester: '1',
+      isFavorite: false
+    },
+    {
+      id: 6,
+      title: 'ORGANIC CHEMISTRY',
+      author: 'MICHAEL BROWN',
+      price: 280,
+      image: 'https://m.media-amazon.com/images/I/61XeLR07VFL._AC_UF1000,1000_QL80_.jpg',
+      category: 'Course Books',
+      subject: 'Chemistry',
+      branch: 'Science',
+      semester: '2',
+      isFavorite: false
+    },
+    {
+      id: 7,
+      title: 'CALCULUS FOR BEGINNERS',
+      author: 'EMMA WILSON',
+      price: 320,
+      image: 'https://m.media-amazon.com/images/I/51G8FJpXi2L._AC_UF1000,1000_QL80_.jpg',
+      category: 'Course Books',
+      subject: 'Mathematics',
+      branch: 'Science',
+      semester: '1',
+      isFavorite: false
+    },
+    {
+      id: 8,
+      title: 'PHYSICS AND MODERN APPLICATIONS',
+      author: 'ROBERT JOHNSON',
+      price: 380,
+      image: 'https://m.media-amazon.com/images/I/61zTBHT07FL._AC_UF1000,1000_QL80_.jpg',
+      category: 'Course Books',
+      subject: 'Physics',
+      branch: 'Science',
+      semester: '2',
+      isFavorite: false
+    },
+    {
+      id: 9,
+      title: 'PRINCIPLES OF ECONOMICS',
+      author: 'JENNIFER LEE',
+      price: 420,
+      image: 'https://media.springernature.com/full/springer-static/cover-hires/book/978-1-137-37526-1',
+      category: 'Course Books',
+      subject: 'Economics',
+      branch: 'Arts',
+      semester: '3',
+      isFavorite: false
+    },
+    {
+      id: 10,
+      title: 'MODERN ART HISTORY',
+      author: 'DAVID WILLIAMS',
+      price: 300,
+      image: 'https://m.media-amazon.com/images/I/41akyVoOOsL._AC_UF1000,1000_QL80_.jpg',
+      category: 'Course Books',
+      subject: 'Art History',
+      branch: 'Arts',
+      semester: '2',
+      isFavorite: false
+    },
+    {
+      id: 11,
+      title: 'JAVA PROGRAMMING',
+      author: 'ANDREW MILLER',
+      price: 550,
+      image: 'https://media.springernature.com/full/springer-static/cover-hires/book/978-1-4302-0032-1',
+      category: 'Course Books',
+      subject: 'Computer Science',
+      branch: 'Engineering',
+      semester: '3',
+      isFavorite: false
+    },
+    {
+      id: 12,
+      title: 'DATABASE MANAGEMENT SYSTEMS',
+      author: 'LISA CHEN',
+      price: 480,
+      image: 'https://www.charulathapublications.com/images/product/DBMS.jpg',
+      category: 'Course Books',
+      subject: 'Computer Science',
+      branch: 'Engineering',
+      semester: '4',
+      isFavorite: false
+    }
+];

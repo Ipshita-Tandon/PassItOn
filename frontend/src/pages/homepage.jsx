@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/navbar.jsx';
 import "./homepage.css";
 import Popular from './popular.jsx';
@@ -6,9 +7,11 @@ import Explore from './explore.jsx'
 import Testimonials from './testimonials.jsx';
 import Footer from '../components/footer.jsx';
 import ContactUs from './contactUs.jsx';
+import Search from './search.jsx';
 import Doyouknowus from './Doyouknowus.jsx';
 
 const HomePage = () => {
+  const navigate = useNavigate();
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -36,7 +39,11 @@ const HomePage = () => {
                 <p className={isLoaded ? 'animate-slide-up hero-text' : 'opacity-0 hero-text'} style={{ animationDelay: '0.7s' }}>
                   Explore different categories. Find the best deals.
                 </p>
-                <button className={isLoaded ? 'animate-slide-up cta-button' : 'opacity-0 cta-button'} style={{ animationDelay: '0.9s' }}>
+                <button
+                  className={isLoaded ? 'animate-slide-up cta-button' : 'opacity-0 cta-button'}
+                  style={{ animationDelay: '0.9s' }}
+                  onClick={() => navigate('/search')}
+                >
                   Shop Now
                 </button>
               </div>
