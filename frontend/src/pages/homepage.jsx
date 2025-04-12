@@ -9,6 +9,7 @@ import Footer from '../components/footer.jsx';
 import ContactUs from './contactUs.jsx';
 import Search from './search.jsx';
 import Doyouknowus from './Doyouknowus.jsx';
+import BookDetails from './BookDetails.jsx';
 
 const HomePage = () => {
   const navigate = useNavigate();

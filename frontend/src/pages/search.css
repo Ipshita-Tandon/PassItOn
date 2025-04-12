@@ -1,32 +1,33 @@
 /* Container for entire app */
 .bookstore-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #f8f9fa;
-  }
-  
-  /* Search Page Styles */
-  .bookstore-search-page {
-    display: flex;
-    flex: 1;
-    font-family: 'Inter', sans-serif;
-    background-color: #f8f9fa;
-  }
-  
-  /* Filters Container */
-  .bookstore-filters-container {
-    width: 280px;
-    position: sticky;
-    top: 76px; /* Adjusted to accommodate navbar */
-    height: calc(100vh - 76px); /* Adjust height to account for navbar */
-    overflow-y: auto;
-    padding: 24px;
-    background-color: white;
-    border-right: 1px solid #e0e0e0;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.03);
-    z-index: 10;
-  }
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+/* Search Page Styles */
+.bookstore-search-page {
+  display: flex;
+  flex: 1;
+  font-family: 'Inter', sans-serif;
+  background-color: #f8f9fa;
+}
+
+/* Filters Container */
+.bookstore-filters-container {
+  width: 280px;
+  position: sticky;
+  top: 76px; /* Adjusted to accommodate navbar */
+  height: calc(100vh - 76px); /* Adjust height to account for navbar */
+  overflow-y: auto;
+  padding: 24px;
+  background-color: white;
+  border-right: 1px solid #e0e0e0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.03);
+  z-index: 10;
+}
+
   
   .bookstore-search-filters {
     display: flex;
@@ -201,13 +202,35 @@
     transform: translateX(4px);
   }
   
-  /* Results Section */
-  .bookstore-search-results {
-    flex: 1;
-    padding: 24px;
-    overflow-y: auto;
-    height: calc(100vh - 76px); /* Adjust height to account for navbar */
-  }
+/* Results Section */
+.bookstore-search-results {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  height: calc(100vh - 76px); /* Adjust height to account for navbar */
+}
+
+/* Loading and Empty States */
+.bookstore-loading,
+.bookstore-no-results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  text-align: center;
+  color: #6c757d;
+}
+
+.bookstore-loading {
+  gap: 16px;
+}
+
+.bookstore-no-results {
+  padding: 0 24px;
+  max-width: 400px;
+  margin: 0 auto;
+}
   
   .bookstore-results-title {
     font-size: 20px;
