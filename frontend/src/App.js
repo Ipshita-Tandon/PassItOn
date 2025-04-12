@@ -14,7 +14,7 @@ import { Toaster } from "react-hot-toast";
 import ReadAloud from "./components/readAloud.js";
 import MyCart from "./pages/mycart.jsx";
 import Search from "./pages/search.jsx";
-
+import BookDetails from "./pages/BookDetails.jsx";
 
 function App() {
   return (
@@ -31,7 +31,7 @@ function App() {
 
         <Route path="/techprofile" element={<TechProfile/>} />
         <Route path="/search" element={<Search/>} />
-        
+        <Route path="/book/:id" element={<BookDetails />} />
         
 
         <Route path="/about" element={<AboutUs />} />
