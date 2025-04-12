@@ -13,6 +13,7 @@ import Profile from "./pages/profile.jsx";
 import { Toaster } from "react-hot-toast";
 import ReadAloud from "./components/readAloud.js";
 import MyCart from "./pages/mycart.jsx";
+import Search from "./pages/search.jsx";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
 
 
         <Route path="/techprofile" element={<TechProfile/>} />
+        <Route path="/search" element={<Search/>} />
         
         
 
