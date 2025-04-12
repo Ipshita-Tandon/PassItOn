@@ -8,7 +8,7 @@ import Testimonials from './testimonials.jsx';
 import Footer from '../components/footer.jsx';
 import ContactUs from './contactUs.jsx';
 import Search from './search.jsx';
-
+import Doyouknowus from './Doyouknowus.jsx';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -67,6 +67,7 @@ const HomePage = () => {
       <Explore />
       <Popular/>
       <Testimonials/>
+      <Doyouknowus/>
       <Footer/>
     </div>
   );
