@@ -1,0 +1,131 @@
+.explore-book-listing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.explore-book-content-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.explore-book-form-container {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 2rem;
+  width: 100%;
+}
+
+.explore-book-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.explore-book-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.explore-book-form-group label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #555555;
+}
+
+.explore-book-full-width {
+  grid-column: span 2;
+}
+
+.explore-book-input-field {
+  padding: 1rem;
+  border: 1px solid #cccccc;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  outline: none;
+  width: 100%;
+  background-color: transparent;
+}
+
+.explore-book-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.explore-book-submit-btn {
+  background-color: #7a918d;
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 0.5rem;
+  grid-column: span 2;
+  justify-self: end;
+}
+
+.explore-book-submit-btn:hover {
+  background-color: #698784;
+}
+
+.explore-book-image-upload {
+  border: 2px dashed #cccccc;
+  border-radius: 0.25rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.explore-book-image-upload:hover {
+  border-color: #7a918d;
+}
+
+.explore-book-image-upload-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: #555555;
+  cursor: pointer;
+}
+
+.explore-book-hidden-input {
+  display: none;
+}
+
+.explore-book-image-preview-text {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #555555;
+}
+
+@media (max-width: 768px) {
+  .explore-book-form {
+    grid-template-columns: 1fr;
+  }
+  
+  .explore-book-full-width {
+    grid-column: span 1;
+  }
+  
+  .explore-book-submit-btn {
+    grid-column: span 1;
+    justify-self: stretch;
+  }
+}

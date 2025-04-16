@@ -10,6 +10,7 @@ import ContactUs from './contactUs.jsx';
 import Search from './search.jsx';
 import Doyouknowus from './Doyouknowus.jsx';
 import BookDetails from './BookDetails.jsx';
+import SellingBook from './Sellingbook.jsx';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -68,6 +69,7 @@ const HomePage = () => {
       <Explore />
       <Popular/>
       <Testimonials/>
+      <SellingBook/>
       <Doyouknowus/>
       <Footer/>
     </div>
