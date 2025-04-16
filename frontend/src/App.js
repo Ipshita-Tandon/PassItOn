@@ -15,6 +15,7 @@ import ReadAloud from "./components/readAloud.js";
 import MyCart from "./pages/mycart.jsx";
 import Search from "./pages/search.jsx";
 import BookDetails from "./pages/BookDetails.jsx";
+import SellingBook from "./pages/Sellingbook.jsx";
 
 function App() {
   return (
@@ -27,7 +28,8 @@ function App() {
         <Route path="/homepage" element={<HomePage />} />
         <Route path="/categories" element={<Explore />} />
         <Route path="/teammates" element={<Teammates />} />
-
+        <Route path="/sell" element={<SellingBook />} />
+        
 
         <Route path="/techprofile" element={<TechProfile/>} />
         <Route path="/search" element={<Search/>} />

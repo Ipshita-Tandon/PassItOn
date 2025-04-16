@@ -45,6 +45,7 @@ const Navbar = () => {
             <li><a href="/teammates" className="nav-link">Find Teammates</a></li>
             <li><a href="/contact" className="nav-link">Contact Us</a></li>
             <li><a href="/about" className="nav-link">About Us</a></li>
+            <li><a href="/sell" className="nav-link">Sell Item</a></li>
             {/* Removed MyProfile and MyCart from here */}
           </ul>
         </div>

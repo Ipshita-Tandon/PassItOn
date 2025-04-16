@@ -69,7 +69,6 @@ const HomePage = () => {
       <Explore />
       <Popular/>
       <Testimonials/>
-      <SellingBook/>
       <Doyouknowus/>
       <Footer/>
     </div>
