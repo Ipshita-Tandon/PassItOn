@@ -55,7 +55,6 @@ const AboutUs = () => {
   return (
     <div className="about-us-container">
       <div className="container">
-      <Navbar/>
         {/* About Creators Section */}
         <div className="creators-section animate-on-scroll">
           <div className="section-header">

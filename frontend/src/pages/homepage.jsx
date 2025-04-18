@@ -22,8 +22,6 @@ const HomePage = () => {
 
   return (
     <div className="flex flex-col min-h-screen"> 
-      {/* Navigation */}
-      <Navbar />
       
       {/* Hero Section */}
       <main className="flex-grow">

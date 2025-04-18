@@ -5,7 +5,6 @@ import Navbar from '../components/navbar';
 const ContactUs = () => {
   return (
     <div className="contact-container">
-        <Navbar/>
         <div className="section-header">
             <h1 className="title">
               Get <span className="highlight">In Touch</span>
