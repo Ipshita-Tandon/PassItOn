@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-import { useEffect, useState } from 'react';
-=======
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/navbar.jsx';
 import "./homepage.css";
->>>>>>> 274b65dbfc792f6109c2469a7abd88d7322e99da
 import Popular from './popular.jsx';
 import Explore from './explore.jsx';
 import Testimonials from './testimonials.jsx';
@@ -13,11 +9,8 @@ import Footer from '../components/footer.jsx';
 import ContactUs from './contactUs.jsx';
 import Search from './search.jsx';
 import Doyouknowus from './Doyouknowus.jsx';
-<<<<<<< HEAD
-import Navbar from '../components/navbar.jsx'; // Make sure you import your Navbar here
-=======
 import BookDetails from './BookDetails.jsx';
->>>>>>> 274b65dbfc792f6109c2469a7abd88d7322e99da
+import SellingBook from './Sellingbook.jsx';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -44,8 +37,7 @@ const HomePage = () => {
                 <p className={isLoaded ? 'animate-slide-up hero-text' : 'opacity-0 hero-text'} style={{ animationDelay: '0.7s' }}>
                   Explore different categories. Find the best deals.
                 </p>
-<<<<<<< HEAD
-=======
+
                 <button
                   className={isLoaded ? 'animate-slide-up cta-button' : 'opacity-0 cta-button'}
                   style={{ animationDelay: '0.9s' }}
@@ -53,7 +45,6 @@ const HomePage = () => {
                 >
                   Shop Now
                 </button>
->>>>>>> 274b65dbfc792f6109c2469a7abd88d7322e99da
               </div>
               <div className={isLoaded ? 'animate-fade-in hero-image' : 'opacity-0 hero-image'} style={{ animationDelay: '0.7s' }}>
                 <div className="book-image-container">
@@ -68,10 +59,10 @@ const HomePage = () => {
         </div>
       </main>
       <Explore />
-      <Popular />
-      <Testimonials />
-      <Doyouknowus />
-      <Footer />
+      <Popular/>
+      <Testimonials/>
+      <Doyouknowus/>
+      <Footer/>
     </div>
   );
 };
