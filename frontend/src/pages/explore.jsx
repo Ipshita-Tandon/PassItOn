@@ -149,7 +149,6 @@ const Explore = () => {
   return (
     
     <div className="explore-container">
-      <Navbar />
       <h1 className="explore-title">Explore By Category</h1>
       
       <div className="explore-content">
