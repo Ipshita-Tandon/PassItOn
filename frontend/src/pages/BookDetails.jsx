@@ -469,32 +469,6 @@ const BookDetails = () => {
 
   return (
     <div className="book-details-container">
-      <div className="navigation-bar">
-        <div className="logo-container">
-          <img src="/lovable-uploads/d1449ea2-9cac-44d1-8fd0-4aff701d5851.png" alt="" className="logo" />
-        </div>
-        <div className="navigation-links">
-          <Link to="/" className="nav-link">Home</Link>
-          <a href="#" className="nav-link">Categories</a>
-          <a href="#" className="nav-link">Book Club</a>
-          <a href="#" className="nav-link">Contact Us</a>
-          <a href="#" className="nav-link">About Us</a>
-        </div>
-        <div className="navigation-icons">
-          <div className="search-icon">
-            <Search className="icon" />
-          </div>
-          <div className="accessibility-icon">
-            <span className="icon">i</span>
-          </div>
-          <div className="cart-icon">
-            <ShoppingCart className="icon" />
-          </div>
-          <div className="profile-icon">
-            <User className="icon" />
-          </div>
-        </div>
-      </div>
 
       <div className="breadcrumb">
         <Link to="/" className="breadcrumb-link">Home</Link>

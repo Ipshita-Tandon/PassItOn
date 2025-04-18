@@ -16,7 +16,6 @@ import Teammates from "./pages/teammates.jsx";
 import TechProfile from "./pages/techproflie.jsx";
 import AboutUs from "./pages/aboutUs.jsx";
 import ContactUs from "./pages/contactUs.jsx";
-import Profile from "./pages/profile.jsx";
 import MyCart from "./pages/mycart.jsx";
 import Search from "./pages/search.jsx";
 import BookDetails from "./pages/BookDetails.jsx";
@@ -69,7 +68,6 @@ const MainContent = ({ authUser }) => {
         <Route path="/book/:id" element={authUser ? <BookDetails /> : <Navigate to="/login" />} />
         <Route path="/about" element={authUser ? <AboutUs /> : <Navigate to="/login" />} />
         <Route path="/contact" element={authUser ? <ContactUs /> : <Navigate to="/login" />} />
-        <Route path="/profile" element={authUser ? <Profile /> : <Navigate to="/login" />} />
         <Route path="/mycart" element={authUser ? <MyCart /> : <Navigate to="/login" />} />
       </Routes>
     </div>

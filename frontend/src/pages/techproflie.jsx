@@ -69,8 +69,6 @@ const TechProfile = () => {
         </div>
       </header> */}
 
-      <Navbar/>
-
       <main className="main-content">
         <ProfileHeader {...profileData} />
 
