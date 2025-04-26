@@ -20,6 +20,7 @@ import Wishlist from "./pages/wishlist.jsx";
 import Search from "./pages/search.jsx";
 import BookDetails from "./pages/BookDetails.jsx";
 import SellingBook from "./pages/Sellingbook.jsx";
+import BiddingWar from "./pages/BiddingWar.jsx";
 
 function App() {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
@@ -69,6 +70,7 @@ const MainContent = ({ authUser }) => {
         <Route path="/about" element={authUser ? <AboutUs /> : <Navigate to="/login" />} />
         <Route path="/contact" element={authUser ? <ContactUs /> : <Navigate to="/login" />} />
         <Route path="/wishlist" element={authUser ? <Wishlist /> : <Navigate to="/login" />} />
+        <Route path="/bid" element={authUser ? <BiddingWar /> : <Navigate to="/login" />} />
       </Routes>
     </div>
   );

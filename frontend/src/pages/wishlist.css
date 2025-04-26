@@ -1,4 +1,4 @@
-.wishlist-container {
+.wwishlist-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
@@ -7,11 +7,11 @@
   min-height: 100vh;
 }
 
-.header {
+.wheader {
   margin-bottom: 20px;
 }
 
-.logo {
+.wlogo {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -21,23 +21,23 @@
   font-weight: bold;
 }
 
-.logo-image {
+.wlogo-image {
   height: 40px;
   width: auto;
 }
 
-.wishlist-header {
+.wwishlist-header {
   text-align: center;
   margin-bottom: 20px;
 }
 
-.heart-icon {
+.wheart-icon {
   font-size: 40px;
   margin-bottom: 10px;
   color: #ea384c;
 }
 
-.fancy-title {
+.wfancy-title {
   font-family: 'Brush Script MT', cursive;
   font-size: 48px;
   color: #ea384c;
@@ -46,7 +46,7 @@
   letter-spacing: 2px;
 }
 
-.wishlist-table {
+.wwishlist-table {
   width: 100%;
   border-collapse: collapse;
   background-color: white;
@@ -54,7 +54,7 @@
   overflow: hidden;
 }
 
-.table-header {
+.wtable-header {
   display: grid;
   grid-template-columns: 60px 2fr 1fr 0.5fr 1fr 1.5fr;
   padding: 15px;
@@ -62,13 +62,13 @@
   background-color: white;
 }
 
-.column-header {
+.wcolumn-header {
   color: #333;
   font-weight: bold;
   text-align: left;
 }
 
-.table-row {
+.wtable-row {
   display: grid;
   grid-template-columns: 60px 2fr 1fr 0.5fr 1fr 1.5fr;
   align-items: center;
@@ -76,7 +76,7 @@
   border-bottom: 1px solid #e0e0e0;
 }
 
-.delete-icon {
+.wdelete-icon {
   color: #8E9196;
   cursor: pointer;
   font-size: 20px;
@@ -84,59 +84,59 @@
   justify-content: center;
 }
 
-.delete-icon:hover {
+.wdelete-icon:hover {
   color: #ea384c;
 }
 
-.product-info {
+.wproduct-info {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-.product-image {
+.wproduct-image {
   width: 80px;
   height: 80px;
   object-fit: cover;
   border-radius: 4px;
 }
 
-.price-info {
+.wprice-info {
   display: flex;
   gap: 10px;
   align-items: center;
 }
 
-/*.original-price {
+/*.woriginal-price {
   text-decoration: line-through;
   color: #8E9196;
 }*/
 
-.sale-price {
+.wsale-price {
   color: #333;
   font-weight: bold;
 }
 
-.quantity {
+.wquantity {
   text-align: center;
 }
 
-.stock-status {
+.wstock-status {
   color: #4CAF50;
 }
 
-.action-column {
+.waction-column {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.date-added {
+.wdate-added {
   color: #8E9196;
   font-size: 14px;
 }
 
-.see-more {
+.wsee-more {
   background-color: #5C9F9F;
   color: white;
   border: none;
@@ -146,25 +146,25 @@
   transition: background-color 0.3s;
 }
 
-.see-more:hover {
+.wsee-more:hover {
   background-color: #4a8080;
 }
 
 @media (max-width: 768px) {
-  .table-header,
-  .table-row {
+  .wtable-header,
+  .wtable-row {
     grid-template-columns: 60px 1fr;
     gap: 10px;
   }
 
-  .column-header:not(:first-child):not(:nth-child(2)),
-  .price-info,
-  .stock-status,
-  .quantity {
+  .wcolumn-header:not(:first-child):not(:nth-child(2)),
+  .wprice-info,
+  .wstock-status,
+  .wquantity {
     display: none;
   }
 
-  .action-column {
+  .waction-column {
     grid-column: 2;
   }
 }
