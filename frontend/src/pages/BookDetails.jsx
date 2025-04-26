@@ -56,9 +56,9 @@ const BookDetails = () => {
 
   const images = [
     "/lovable-uploads/b2d34808-a22d-4921-9a50-8cb9dbb70e22.png",
-    "/book-cover-1.jpg",
-    "/book-cover-2.jpg",
-    "/book-cover-3.jpg"
+    "https://a.media-amazon.com/images/I/81ZHWRFgTtL._SY522_.jpg",
+    "https://m.media-amazon.com/images/I/71F-PLj+P-L.jpg",
+    "https://a.media-amazon.com/images/I/81xTCrkgxXL.jpg"
   ];
 
   const incrementQuantity = () => setQuantity(quantity + 1);
