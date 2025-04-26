@@ -1,0 +1,28 @@
+.contact-seller-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin-left: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.3s;
+}
+
+.contact-seller-btn:hover {
+  background-color: #45a049;
+}
+
+.contact-seller-btn:disabled,
+.contact-seller-btn.disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.contact-seller-btn.loading {
+  background-color: #2196F3;
+}

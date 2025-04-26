@@ -78,8 +78,8 @@ const Navbar = () => {
                 <a href="/techprofile" className="dropdown-item">
                   <User size={16} className="dropdown-icon" /> My Profile
                 </a>
-                <a href="/mycart" className="dropdown-item">
-                  <ShoppingCart size={16} className="dropdown-icon" /> My Cart
+                <a href="/wishlist" className="dropdown-item">
+                  <ShoppingCart size={16} className="dropdown-icon" /> Wishlist
                 </a>
               </div>
             )}
