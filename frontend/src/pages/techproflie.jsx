@@ -10,12 +10,12 @@ import Footer from '../components/footer';
 
 const TechProfile = () => {
   const profileData = {
-    name: "Alex Johnson",
+    name: "Amishi Kumar",
     title: "Full Stack Developer",
     bio: "Passionate developer with 5+ years of experience building web applications. Specialized in React, Node.js, and cloud technologies. Looking to join innovative projects.",
-    location: "San Francisco, CA",
+    location: "Bangalore, India",
     availability: "Available for Projects",
-    imageUrl: "/placeholder.svg",
+    imageUrl: "https://t3.ftcdn.net/jpg/02/81/81/86/360_F_281818663_XXRCNuGktKeZsnknqWkKI0rR4JPWui3H.jpg",
   };
 
   const skillsData = {
@@ -31,12 +31,22 @@ const TechProfile = () => {
       title: "E-commerce Platform",
       description: "A full-stack e-commerce platform with payment integration, admin dashboard, and analytics.",
       technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-      imageUrl: "/placeholder.svg",
+      imageUrl: "https://cdn.prod.website-files.com/67c68c93736617d0ce4e4f7b/67f75d2ba77d2a621030f108_66c6c1f431813af88573bb0a_644cc065de112f7348d631bb_Fynd%252520platfrom.webp",
       repoUrl: "#",
       demoUrl: "#",
       stars: 45,
       forks: 12,
     },
+    {
+      title: "Recipe Finder",
+      description: "A full-stack cooking platform with payment integration, admin dashboard, and analytics.",
+      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+      imageUrl: "https://www.colourtheme.com/images/080ad9684197a6ea7da0c1a7fa9d4014.webp",
+      repoUrl: "#",
+      demoUrl: "#",
+      stars: 45,
+      forks: 12,
+    }
   ];
 
   const education = [
@@ -44,9 +54,16 @@ const TechProfile = () => {
       type: "education",
       title: "Master of Science in Computer Science",
       institution: "Stanford University",
-      date: "2018 - 2020",
+      date: "2026 - 2028",
       description: "Specialized in Artificial Intelligence and Machine Learning",
     },
+    {
+      type: "education",
+      title: "Bachelor of Technology",
+      institution: "IGDTUW University",
+      date: "2022 - 2026",
+      description: "Specialized in Artificial Intelligence and Machine Learning",
+    }
   ];
 
   const scrollToTop = () => {
