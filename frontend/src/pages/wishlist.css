@@ -1,0 +1,170 @@
+.wishlist-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #F5EEE6;
+  min-height: 100vh;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo-image {
+  height: 40px;
+  width: auto;
+}
+
+.wishlist-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.heart-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #ea384c;
+}
+
+.fancy-title {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 48px;
+  color: #ea384c;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 2px;
+}
+
+.wishlist-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 60px 2fr 1fr 0.5fr 1fr 1.5fr;
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: white;
+}
+
+.column-header {
+  color: #333;
+  font-weight: bold;
+  text-align: left;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 60px 2fr 1fr 0.5fr 1fr 1.5fr;
+  align-items: center;
+  padding: 20px 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.delete-icon {
+  color: #8E9196;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.delete-icon:hover {
+  color: #ea384c;
+}
+
+.product-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.product-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.price-info {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/*.original-price {
+  text-decoration: line-through;
+  color: #8E9196;
+}*/
+
+.sale-price {
+  color: #333;
+  font-weight: bold;
+}
+
+.quantity {
+  text-align: center;
+}
+
+.stock-status {
+  color: #4CAF50;
+}
+
+.action-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.date-added {
+  color: #8E9196;
+  font-size: 14px;
+}
+
+.see-more {
+  background-color: #5C9F9F;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.see-more:hover {
+  background-color: #4a8080;
+}
+
+@media (max-width: 768px) {
+  .table-header,
+  .table-row {
+    grid-template-columns: 60px 1fr;
+    gap: 10px;
+  }
+
+  .column-header:not(:first-child):not(:nth-child(2)),
+  .price-info,
+  .stock-status,
+  .quantity {
+    display: none;
+  }
+
+  .action-column {
+    grid-column: 2;
+  }
+}

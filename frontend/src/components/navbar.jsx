@@ -45,7 +45,6 @@ const Navbar = () => {
             <li><a href="/teammates" className="nav-link">Find Teammates</a></li>
             <li><a href="/contact" className="nav-link">Contact Us</a></li>
             <li><a href="/about" className="nav-link">About Us</a></li>
-            <li><a href="/sell" className="nav-link">Sell Item</a></li>
             {/* Removed MyProfile and MyCart from here */}
           </ul>
         </div>
@@ -79,8 +78,8 @@ const Navbar = () => {
                 <a href="/techprofile" className="dropdown-item">
                   <User size={16} className="dropdown-icon" /> My Profile
                 </a>
-                <a href="/mycart" className="dropdown-item">
-                  <ShoppingCart size={16} className="dropdown-icon" /> My Cart
+                <a href="/wishlist" className="dropdown-item">
+                  <ShoppingCart size={16} className="dropdown-icon" /> Wishlist
                 </a>
               </div>
             )}
@@ -93,4 +92,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar;
