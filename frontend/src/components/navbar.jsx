@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Search, User, ShoppingCart, Accessibility } from 'lucide-react';
+import { Search, User, ShoppingCart, Accessibility, Bell } from 'lucide-react';
+import { useNavigate } from "react-router-dom";  // Import useNavigate
 import ReadAloud from "./readAloud.js";
 import "../pages/homepage.css";
 
@@ -7,6 +8,9 @@ const Navbar = () => {
   const [accessibilityEnabled, setAccessibilityEnabled] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+  
+  // Use useNavigate hook for programmatic navigation
+  const navigate = useNavigate();
 
   const toggleReadAloud = () => {
     setAccessibilityEnabled(!accessibilityEnabled);
@@ -25,6 +29,11 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  // Handle Bell icon click to navigate to /bid
+  const handleBellClick = () => {
+    navigate("/bid");
+  };
 
   return (
     <header className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
@@ -50,8 +59,12 @@ const Navbar = () => {
 
         {/* Right side icons */}
         <div className="nav-icons">
-          <button className="icon-button" aria-label="Search">
-            <Search size={24} />
+          <button 
+            className="icon-button" 
+            aria-label="Notifications" 
+            onClick={handleBellClick}  // Add the click handler here
+          >
+            <Bell size={24} />
           </button>
           
           <button
