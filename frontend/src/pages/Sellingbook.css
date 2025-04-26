@@ -4,7 +4,7 @@
   align-items: center;
   min-height: 100vh;
   padding: 2rem;
-  background-color: #ffffff;
+  background-color: #F9F5F0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .explore-book-form-container {
-  background-color: #ffffff;
+  background-color: #F9F5F0;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   padding: 2rem;
