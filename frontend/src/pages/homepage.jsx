@@ -11,6 +11,7 @@ import Search from './search.jsx';
 import Doyouknowus from './Doyouknowus.jsx';
 import BookDetails from './BookDetails.jsx';
 import SellingBook from './Sellingbook.jsx';
+import BiddingWar from './BiddingWar.jsx';
 
 const HomePage = () => {
   const navigate = useNavigate();
