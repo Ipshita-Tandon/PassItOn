@@ -41,7 +41,6 @@ const Navbar = () => {
           <ul className="nav-links">
             <li><a href="/homepage" className="nav-link">Home</a></li>
             <li><a href="/categories" className="nav-link">Categories</a></li>
-            <li><a href="/book-club" className="nav-link">Book Club</a></li>
             <li><a href="/teammates" className="nav-link">Find Teammates</a></li>
             <li><a href="/contact" className="nav-link">Contact Us</a></li>
             <li><a href="/about" className="nav-link">About Us</a></li>
