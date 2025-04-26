@@ -674,7 +674,6 @@ const Search = () => {
 
   return (
     <div className="bookstore-container">
-      <Navbar />
       <div className="bookstore-search-page">
         <div className="bookstore-filters-container">
           <div className="bookstore-search-filters">

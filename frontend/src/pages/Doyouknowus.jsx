@@ -54,7 +54,7 @@ const Doyouknowus = () => {
         <div className="right-section">
           <div className="map-container">
             <img 
-              src="/lovable-uploads/d900cf29-b56d-47c8-8b56-a1c769612a71.png" 
+              src="../images/map.png" 
               alt="Location Map" 
               className="map-image" 
             />

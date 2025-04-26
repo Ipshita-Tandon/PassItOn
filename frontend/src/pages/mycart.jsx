@@ -59,7 +59,6 @@ const MyCart = () => {
 
   return (
     <div className="shopping-cart-container">
-      <Navbar/>
       <header className="cart-header">
         <h1>My eBay Cart</h1>
         <p>{cartItems.length} {cartItems.length === 1 ? 'item' : 'items'} in your cart</p>

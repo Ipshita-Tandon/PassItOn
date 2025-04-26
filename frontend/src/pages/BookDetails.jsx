@@ -83,6 +83,7 @@ const BookDetails = () => {
 
   return (
     <div className="book-details-container">
+
       <div className="navigation-bar">
         <div className="logo-container">
           <img src="/lovable-uploads/d1449ea2-9cac-44d1-8fd0-4aff701d5851.png" alt="" className="logo" />
@@ -101,6 +102,8 @@ const BookDetails = () => {
           <div className="profile-icon"><User className="icon" /></div>
         </div>
       </div>
+
+
 
       <div className="breadcrumb">
         <Link to="/" className="breadcrumb-link">Home</Link>
