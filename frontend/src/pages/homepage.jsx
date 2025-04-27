@@ -11,6 +11,7 @@ import Search from './search.jsx';
 import Doyouknowus from './Doyouknowus.jsx';
 import BookDetails from './BookDetails.jsx';
 import SellingBook from './Sellingbook.jsx';
+import BiddingWar from './BiddingWar.jsx';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -22,7 +23,6 @@ const HomePage = () => {
 
   return (
     <div className="flex flex-col min-h-screen"> 
-      <Navbar />
       <main className="flex-grow">
         <div className="hero-container">
           <div className="hero-section">
@@ -51,7 +51,7 @@ const HomePage = () => {
                   <div className="hanging-light">
                     <img src="/images/hanging-light.png" alt="Hanging Light" className="hanging-light-image" />
                   </div>
-                  <img src="/images/books.png" alt="Stack of Books" className="books-image" />
+                  <img src="/images/books5.png" alt="Stack of Books" className="books-image" />
                 </div>
               </div>
             </div>

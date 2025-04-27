@@ -16,7 +16,7 @@ const AboutUs = () => {
     },
     {
       name: "Bhuvi Singh",
-      imageURL: "https://i.pinimg.com/474x/9c/bd/74/9cbd744294b488939adc6b861898117a.jpg",
+      imageURL: "images/bhuvi.jpeg",
       description: "Bhuvi is an enthusiastic tech developer, always eager to learn and a great team player. Skilled in Machine Learning, she excels in solving complex problems with innovative solutions. Currently pursuing a B.Tech in CSE at IGDTUW, she is in her third year, actively expanding her knowledge in AI and emerging technologies."
     },
     {
@@ -55,7 +55,6 @@ const AboutUs = () => {
   return (
     <div className="about-us-container">
       <div className="container">
-      <Navbar/>
         {/* About Creators Section */}
         <div className="creators-section animate-on-scroll">
           <div className="section-header">

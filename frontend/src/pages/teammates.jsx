@@ -1,7 +1,8 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import './teammates.css';
 
-const Teammate = () => {
+const Teammates = () => {
   // State management
   const [activeTab, setActiveTab] = useState('projects');
   const [searchTerm, setSearchTerm] = useState('');
@@ -46,7 +47,7 @@ const Teammate = () => {
       currentMembers: 2,
       postedBy: 'Harnoor Kaur',
       postedDate: '2023-10-20',
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
+      avatarUrl: 'https://i.pinimg.com/736x/e9/2e/80/e92e80f8169cfd610312ec7bc49f2a91.jpg',
       status: 'online',
       bookmarked: false
     },
@@ -60,7 +61,7 @@ const Teammate = () => {
       currentMembers: 1,
       postedBy: 'Geet Kaushik',
       postedDate: '2023-10-18',
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
+      avatarUrl: 'https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ=',
       status: 'busy',
       bookmarked: true
     },
@@ -72,9 +73,9 @@ const Teammate = () => {
       deadline: '2024-01-10',
       teamSize: 5,
       currentMembers: 3,
-      postedBy: 'Shanti Priya',
+      postedBy: 'Shrey Saxena',
       postedDate: '2023-10-15',
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
+      avatarUrl: 'https://i.pinimg.com/474x/eb/76/a4/eb76a46ab920d056b02d203ca95e9a22.jpg',
       status: 'offline',
       bookmarked: false
     },
@@ -88,7 +89,7 @@ const Teammate = () => {
       currentMembers: 1,
       postedBy: 'Naina Talwar',
       postedDate: '2023-10-10',
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
+      avatarUrl: 'https://i.pinimg.com/474x/9c/bd/74/9cbd744294b488939adc6b861898117a.jpg',
       status: 'online',
       bookmarked: true
     }
@@ -102,7 +103,7 @@ const Teammate = () => {
       skills: ['Machine Learning', 'Python', 'Data Science'],
       major: 'Computer Science',
       year: 'Junior',
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
+      avatarUrl: 'https://i.pinimg.com/474x/9c/bd/74/9cbd744294b488939adc6b861898117a.jpg',
       status: 'online',
       bio: 'Passionate about AI and its applications in education. Looking to collaborate on innovative projects!',
       projects: 12,
@@ -114,7 +115,7 @@ const Teammate = () => {
       skills: ['UI/UX Design', 'React', 'Mobile Development'],
       major: 'Digital Media Design',
       year: 'Senior',
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
+      avatarUrl: 'https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ=',
       status: 'busy',
       bio: 'UI/UX designer with a focus on creating intuitive and accessible interfaces for educational platforms.',
       projects: 8,
@@ -122,11 +123,11 @@ const Teammate = () => {
     },
     {
       id: 3,
-      name: 'Shanti Priya',
+      name: 'Shrey Saxena',
       skills: ['React', 'Node.js', 'Product Management'],
       major: 'Information Systems',
       year: 'Graduate Student',
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
+      avatarUrl: 'https://i.pinimg.com/474x/eb/76/a4/eb76a46ab920d056b02d203ca95e9a22.jpg',
       status: 'offline',
       bio: 'Full-stack developer with 3 years of experience. Interested in EdTech and collaborative learning platforms.',
       projects: 15,
@@ -138,7 +139,7 @@ const Teammate = () => {
       skills: ['Blockchain', 'JavaScript', 'Cloud Computing'],
       major: 'Computer Engineering',
       year: 'Senior',
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
+      avatarUrl: 'https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ=',
       status: 'online',
       bio: 'Exploring the intersection of blockchain technology and education. Looking for innovative hackathon teams!',
       projects: 10,
@@ -272,13 +273,11 @@ const Teammate = () => {
   const handleProjectSubmit = (e) => {
     e.preventDefault();
     
-    // Validate form
     if (!newProject.title || !newProject.description || newProject.requiredSkills.length === 0 || !newProject.deadline) {
       alert("Please fill all required fields");
       return;
     }
     
-    // Create new project and add to list
     const newProjectObj = {
       id: projects.length + 1,
       ...newProject,
@@ -292,7 +291,6 @@ const Teammate = () => {
     
     setProjects(prev => [newProjectObj, ...prev]);
     
-    // Reset form and hide it
     setNewProject({
       title: '',
       description: '',
@@ -327,7 +325,7 @@ const Teammate = () => {
     alert(`Connection request sent to ${studentName}`);
   };
 
-  // Navigation functions from CODE-2
+  // Navigation functions
   const navigateToStudents = () => {
     setActiveTab('students');
   };
@@ -342,90 +340,37 @@ const Teammate = () => {
   };
 
   return (
-    <div className="teammates-container">
-      {/* Header */}
-      <header className="teammates-header">
-        <div className="logo-container">
-          <h1 className="logo">TeamMate</h1>
-        </div>
-        
-        <div className="header-actions">
-          <button className="header-button notification-btn">
-            <span className="icon">🔔</span>
-          </button>
-          
-          <button className="header-button message-btn">
-            <span className="icon">✉️</span>
-          </button>
-          
-          <div className="user-profile" ref={userMenuRef}>
-            <button 
-              className="profile-button"
-              onClick={() => setShowUserMenu(!showUserMenu)}
-            >
-              <div className="profile-pic status-online">
-                <img 
-                  src="/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png" 
-                  alt="Your profile" 
-                />
-              </div>
-              <span className="icon dropdown-arrow">▼</span>
-            </button>
-            
-            {showUserMenu && (
-              <div className="user-menu">
-                <div className="user-menu-header">
-                  <p className="user-name">Jordan Smith</p>
-                  <p className="user-email">jordan@university.edu</p>
-                </div>
-                <button className="user-menu-item">
-                  <span className="icon">👤</span>
-                  <span>Profile</span>
-                </button>
-                <button className="user-menu-item">
-                  <span className="icon">⚙️</span>
-                  <span>Settings</span>
-                </button>
-                <button className="user-menu-item">
-                  <span className="icon">🚪</span>
-                  <span>Sign out</span>
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-      </header>
-      
+    <div className="tm-container">      
       {/* Hero section */}
-      <section className="hero-section">
-        <div className="hero-content">
+      <section className="tm-hero-section">
+        <div className="tm-hero-content">
           <h1>Find the perfect teammates for your next project</h1>
           <p>
             Connect with talented students, collaborate on innovative ideas, and build amazing projects together.
           </p>
           
-          <div className="hero-buttons">
+          <div className="tm-hero-buttons">
             <button 
-              className="primary-button"
+              className="tm-primary-button"
               onClick={() => setShowProjectForm(true)}
             >
-              <span className="icon">➕</span>
+              <span className="tm-icon">➕</span>
               Post a Project
             </button>
             
             <button 
-              className="secondary-button"
+              className="tm-secondary-button"
               onClick={navigateToStudents}
             >
-              <span className="icon">👥</span>
+              <span className="tm-icon">👥</span>
               Find Students
             </button>
             
             <button 
-              className="secondary-button"
+              className="tm-secondary-button"
               onClick={navigateToProjects}
             >
-              <span className="icon">📋</span>
+              <span className="tm-icon">📋</span>
               Browse Projects
             </button>
           </div>
@@ -433,18 +378,18 @@ const Teammate = () => {
       </section>
       
       {/* Main content */}
-      <main className="main-content">
+      <main className="tm-main-content">
         {/* Tabs */}
-        <div className="tabs">
+        <div className="tm-tabs">
           <button 
-            className={`tab ${activeTab === 'projects' ? 'active' : ''}`}
+            className={`tm-tab ${activeTab === 'projects' ? 'tm-active' : ''}`}
             onClick={() => setActiveTab('projects')}
           >
             Projects
           </button>
           
           <button 
-            className={`tab ${activeTab === 'students' ? 'active' : ''}`}
+            className={`tm-tab ${activeTab === 'students' ? 'tm-active' : ''}`}
             onClick={() => setActiveTab('students')}
           >
             Students
@@ -452,38 +397,38 @@ const Teammate = () => {
         </div>
         
         {/* Search and filters */}
-        <div className="search-filters">
-          <div className="search-container">
-            <span className="search-icon">🔍</span>
+        <div className="tm-search-filters">
+          <div className="tm-search-container">
+            <span className="tm-search-icon">🔍</span>
             <input
               type="text"
               placeholder={`Search ${activeTab === 'projects' ? 'projects' : 'students'}...`}
-              className="search-input"
+              className="tm-search-input"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
           
-          <div className="filter-container" ref={skillsDropdownRef}>
+          <div className="tm-filter-container" ref={skillsDropdownRef}>
             <button 
-              className="filter-button"
+              className="tm-filter-button"
               onClick={() => setShowSkillsDropdown(!showSkillsDropdown)}
             >
-              <span className="icon">🔍</span>
+              <span className="tm-icon">🔍</span>
               Filter by Skills
-              <span className="dropdown-arrow">▼</span>
+              <span className="tm-dropdown-arrow">▼</span>
             </button>
             
             {showSkillsDropdown && (
-              <div className="skills-dropdown">
+              <div className="tm-skills-dropdown">
                 {SKILLS.map((skill) => (
                   <button
                     key={skill}
-                    className={`skill-option ${selectedSkills.includes(skill) ? 'selected' : ''}`}
+                    className={`tm-skill-option ${selectedSkills.includes(skill) ? 'tm-selected' : ''}`}
                     onClick={() => toggleSkill(skill)}
                   >
                     <span>{skill}</span>
-                    {selectedSkills.includes(skill) && <span className="check-icon">✓</span>}
+                    {selectedSkills.includes(skill) && <span className="tm-check-icon">✓</span>}
                   </button>
                 ))}
               </div>
@@ -492,7 +437,7 @@ const Teammate = () => {
           
           {selectedSkills.length > 0 && (
             <button 
-              className="clear-filters"
+              className="tm-clear-filters"
               onClick={() => setSelectedSkills([])}
             >
               Clear filters ✕
@@ -502,11 +447,11 @@ const Teammate = () => {
         
         {/* Selected skills display */}
         {selectedSkills.length > 0 && (
-          <div className="selected-skills">
+          <div className="tm-selected-skills">
             {selectedSkills.map(skill => (
-              <span key={skill} className="skill-tag">
+              <span key={skill} className="tm-skill-tag">
                 {skill}
-                <button onClick={() => toggleSkill(skill)} className="remove-skill">
+                <button onClick={() => toggleSkill(skill)} className="tm-remove-skill">
                   ✕
                 </button>
               </span>
@@ -518,10 +463,10 @@ const Teammate = () => {
         {activeTab === 'projects' && (
           <>
             {filteredProjects.length === 0 ? (
-              <div className="empty-state">
+              <div className="tm-empty-state">
                 <p>No projects found matching your criteria</p>
                 <button 
-                  className="reset-button"
+                  className="tm-reset-button"
                   onClick={() => {
                     setSearchTerm('');
                     setSelectedSkills([]);
@@ -531,24 +476,24 @@ const Teammate = () => {
                 </button>
               </div>
             ) : (
-              <div className="projects-grid">
+              <div className="tm-projects-grid">
                 {filteredProjects.map((project) => (
-                  <div key={project.id} className="project-card">
-                    <div className="project-header">
-                      <div className="project-poster">
-                        <div className={`profile-pic status-${project.status}`}>
+                  <div key={project.id} className="tm-project-card">
+                    <div className="tm-project-header">
+                      <div className="tm-project-poster">
+                        <div className={`tm-profile-pic tm-status-${project.status}`}>
                           <img 
                             src={project.avatarUrl} 
                             alt={project.postedBy} 
                           />
                         </div>
                         <div>
-                          <p className="poster-name">{project.postedBy}</p>
-                          <p className="post-date">Posted on {new Date(project.postedDate).toLocaleDateString()}</p>
+                          <p className="tm-poster-name">{project.postedBy}</p>
+                          <p className="tm-post-date">Posted on {new Date(project.postedDate).toLocaleDateString()}</p>
                         </div>
                       </div>
                       <button 
-                        className={`bookmark-button ${bookmarkedProjects.includes(project.id) ? 'bookmarked' : ''}`} 
+                        className={`tm-bookmark-button ${bookmarkedProjects.includes(project.id) ? 'tm-bookmarked' : ''}`} 
                         onClick={() => toggleBookmark(project.id)}
                         aria-label={bookmarkedProjects.includes(project.id) ? "Remove bookmark" : "Bookmark project"}
                       >
@@ -556,40 +501,40 @@ const Teammate = () => {
                       </button>
                     </div>
                     
-                    <h3 className="project-title">{project.title}</h3>
-                    <p className="project-description">{project.description}</p>
+                    <h3 className="tm-project-title">{project.title}</h3>
+                    <p className="tm-project-description">{project.description}</p>
                     
-                    <div className="project-skills">
-                      <p className="section-label">Required Skills</p>
-                      <div className="skills-list">
+                    <div className="tm-project-skills">
+                      <p className="tm-section-label">Required Skills</p>
+                      <div className="tm-skills-list">
                         {project.requiredSkills.map((skill) => (
-                          <span key={skill} className="skill-tag small">
+                          <span key={skill} className="tm-skill-tag tm-small">
                             {skill}
                           </span>
                         ))}
                       </div>
                     </div>
                     
-                    <div className="project-meta">
-                      <div className="meta-item">
-                        <span className="icon">👥</span>
+                    <div className="tm-project-meta">
+                      <div className="tm-meta-item">
+                        <span className="tm-icon">👥</span>
                         <span>{project.currentMembers}/{project.teamSize} members</span>
                       </div>
-                      <div className="meta-item">
-                        <span className="icon">⏱️</span>
+                      <div className="tm-meta-item">
+                        <span className="tm-icon">⏱️</span>
                         <span>{getTimeRemaining(project.deadline)}</span>
                       </div>
                     </div>
                     
-                    <div className="project-actions">
+                    <div className="tm-project-actions">
                       <button 
-                        className="primary-button"
+                        className="tm-primary-button"
                         onClick={() => expressInterest(project.id)}
                       >
                         Express Interest
                       </button>
                       <button 
-                        className="secondary-button"
+                        className="tm-secondary-button"
                         onClick={() => setOpenProjectId(openProjectId === project.id ? null : project.id)}
                       >
                         Details
@@ -597,15 +542,15 @@ const Teammate = () => {
                     </div>
                     
                     {openProjectId === project.id && (
-                      <div className="project-details">
-                        <div className="detail-item">
-                          <p className="detail-label">Deadline</p>
-                          <p className="detail-value">{new Date(project.deadline).toLocaleDateString()}</p>
+                      <div className="tm-project-details">
+                        <div className="tm-detail-item">
+                          <p className="tm-detail-label">Deadline</p>
+                          <p className="tm-detail-value">{new Date(project.deadline).toLocaleDateString()}</p>
                         </div>
                         
-                        <div className="detail-item">
-                          <p className="detail-label">Team Size</p>
-                          <p className="detail-value">{project.teamSize} members needed</p>
+                        <div className="tm-detail-item">
+                          <p className="tm-detail-label">Team Size</p>
+                          <p className="tm-detail-value">{project.teamSize} members needed</p>
                         </div>
                       </div>
                     )}
@@ -620,10 +565,10 @@ const Teammate = () => {
         {activeTab === 'students' && (
           <>
             {filteredStudents.length === 0 ? (
-              <div className="empty-state">
+              <div className="tm-empty-state">
                 <p>No students found matching your criteria</p>
                 <button 
-                  className="reset-button"
+                  className="tm-reset-button"
                   onClick={() => {
                     setSearchTerm('');
                     setSelectedSkills([]);
@@ -633,55 +578,55 @@ const Teammate = () => {
                 </button>
               </div>
             ) : (
-              <div className="students-grid">
+              <div className="tm-students-grid">
                 {filteredStudents.map((student) => (
-                  <div key={student.id} className="student-card">
-                    <div className="student-header">
-                      <div className={`profile-pic large status-${student.status}`}>
+                  <div key={student.id} className="tm-student-card">
+                    <div className="tm-student-header">
+                      <div className={`tm-profile-pic tm-large tm-status-${student.status}`}>
                         <img 
                           src={student.avatarUrl} 
                           alt={student.name} 
                         />
                       </div>
                       <div>
-                        <h3 className="student-name">{student.name}</h3>
-                        <p className="student-info">{student.major}, {student.year}</p>
+                        <h3 className="tm-student-name">{student.name}</h3>
+                        <p className="tm-student-info">{student.major}, {student.year}</p>
                       </div>
                     </div>
                     
-                    <p className="student-bio">{student.bio}</p>
+                    <p className="tm-student-bio">{student.bio}</p>
                     
-                    <div className="student-skills">
-                      <p className="section-label">Skills</p>
-                      <div className="skills-list">
+                    <div className="tm-student-skills">
+                      <p className="tm-section-label">Skills</p>
+                      <div className="tm-skills-list">
                         {student.skills.map((skill) => (
-                          <span key={skill} className="skill-tag small">
+                          <span key={skill} className="tm-skill-tag tm-small">
                             {skill}
                           </span>
                         ))}
                       </div>
                     </div>
                     
-                    <div className="student-stats">
-                      <div className="stat">
-                        <span className="stat-number">{student.projects}</span>
-                        <span className="stat-label">Projects</span>
+                    <div className="tm-student-stats">
+                      <div className="tm-stat">
+                        <span className="tm-stat-number">{student.projects}</span>
+                        <span className="tm-stat-label">Projects</span>
                       </div>
-                      <div className="stat">
-                        <span className="stat-number">{student.rating}</span>
-                        <span className="stat-label">Rating</span>
+                      <div className="tm-stat">
+                        <span className="tm-stat-number">{student.rating}</span>
+                        <span className="tm-stat-label">Rating</span>
                       </div>
                     </div>
                     
-                    <div className="student-actions">
+                    <div className="tm-student-actions">
                       <button 
-                        className="secondary-button"
+                        className="tm-secondary-button"
                         onClick={() => viewStudentProfile(student.id)}
                       >
                         View Profile
                       </button>
                       <button 
-                        className="primary-button"
+                        className="tm-primary-button"
                         onClick={() => connectWithStudent(student.name)}
                       >
                         Connect
@@ -697,45 +642,48 @@ const Teammate = () => {
       
       {/* Project form modal */}
       {showProjectForm && (
-        <div className="modal-overlay">
-          <div className="modal">
-            <div className="modal-header">
+        <div className="tm-modal-overlay">
+          <div className="tm-modal">
+            <div className="tm-modal-header">
               <h2>Post a New Project</h2>
-              <button className="close-button" onClick={() => setShowProjectForm(false)}>
+              <button className="tm-close-button" onClick={() => setShowProjectForm(false)}>
                 ✕
               </button>
             </div>
             
-            <form onSubmit={handleProjectSubmit}>
-              <div className="form-group">
-                <label htmlFor="title">Project Title *</label>
+            <form onSubmit={handleProjectSubmit} className="tm-form">
+              <div className="tm-form-group">
+                <label htmlFor="title" className="tm-label">Project Title *</label>
                 <input
                   type="text"
                   id="title"
+                  className="tm-input"
                   value={newProject.title}
                   onChange={(e) => setNewProject({...newProject, title: e.target.value})}
                   required
                 />
               </div>
               
-              <div className="form-group">
-                <label htmlFor="description">Project Description *</label>
+              <div className="tm-form-group">
+                <label htmlFor="description" className="tm-label">Project Description *</label>
                 <textarea
                   id="description"
                   rows={4}
+                  className="tm-textarea"
                   value={newProject.description}
                   onChange={(e) => setNewProject({...newProject, description: e.target.value})}
                   required
                 />
               </div>
               
-              <div className="form-group">
-                <label>Required Skills *</label>
-                <div className="skill-input-container">
+              <div className="tm-form-group">
+                <label className="tm-label">Required Skills *</label>
+                <div className="tm-skill-input-container">
                   <input
                     type="text"
                     list="skills-list"
                     placeholder="Add a skill"
+                    className="tm-input"
                     value={newSkill}
                     onChange={(e) => setNewSkill(e.target.value)}
                   />
@@ -746,7 +694,7 @@ const Teammate = () => {
                   </datalist>
                   <button
                     type="button"
-                    className="add-skill-button"
+                    className="tm-add-skill-button"
                     onClick={addSkillToProject}
                   >
                     Add
@@ -754,14 +702,14 @@ const Teammate = () => {
                 </div>
                 
                 {newProject.requiredSkills.length > 0 && (
-                  <div className="selected-skills">
+                  <div className="tm-selected-skills">
                     {newProject.requiredSkills.map((skill) => (
-                      <span key={skill} className="skill-tag">
+                      <span key={skill} className="tm-skill-tag">
                         {skill}
                         <button 
                           type="button" 
                           onClick={() => removeSkillFromProject(skill)} 
-                          className="remove-skill"
+                          className="tm-remove-skill"
                         >
                           ✕
                         </button>
@@ -771,22 +719,24 @@ const Teammate = () => {
                 )}
               </div>
               
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="deadline">Deadline *</label>
+              <div className="tm-form-row">
+                <div className="tm-form-group">
+                  <label htmlFor="deadline" className="tm-label">Deadline *</label>
                   <input
                     type="date"
                     id="deadline"
+                    className="tm-input"
                     value={newProject.deadline}
                     onChange={(e) => setNewProject({...newProject, deadline: e.target.value})}
                     required
                   />
                 </div>
                 
-                <div className="form-group">
-                  <label htmlFor="teamSize">Team Size</label>
+                <div className="tm-form-group">
+                  <label htmlFor="teamSize" className="tm-label">Team Size</label>
                   <select
                     id="teamSize"
+                    className="tm-select"
                     value={newProject.teamSize}
                     onChange={(e) => setNewProject({...newProject, teamSize: parseInt(e.target.value)})}
                   >
@@ -797,17 +747,17 @@ const Teammate = () => {
                 </div>
               </div>
               
-              <div className="form-actions">
+              <div className="tm-form-actions">
                 <button
                   type="button"
-                  className="secondary-button"
+                  className="tm-secondary-button"
                   onClick={() => setShowProjectForm(false)}
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="primary-button"
+                  className="tm-primary-button"
                 >
                   Post Project
                 </button>
@@ -818,11 +768,11 @@ const Teammate = () => {
       )}
       
       {/* Footer */}
-      <footer className="footer">
+      <footer className="tm-footer">
         <p>© 2023 TeamMate - Connect, Collaborate, Create</p>
       </footer>
     </div>
   );
 };
 
-export default Teammate;
+export default Teammates;

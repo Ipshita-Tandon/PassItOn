@@ -11,10 +11,21 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #F9F5F0; /* cream background */
+
+  /* background-color: #F5EEE6; */
+  /* background-color: #f8f8f8; */
+
+  background-color: #F9F5F0;
+
   color: #2D3436;
   min-height: 100vh;
 }
+
+header {
+  position: relative;
+  z-index: 1000;
+}
+
 
 /* Container and layout */
 .container {
@@ -27,9 +38,13 @@ body {
 /* Navigation styles */
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Center everything horizontally */
   align-items: center;
-  margin-bottom: 64px;
+  margin-top: 5px;
+  margin-bottom: 44px;
+  padding: 16px 32px;
+  position: relative; /* So right icons can be positioned */
+  z-index: 1000;
 }
 
 .nav-left {
@@ -39,8 +54,8 @@ nav {
 }
 
 .logo-container {
-  display: flex;
-  align-items: center;
+  position: absolute;
+  left: 32px;
 }
 
 .logo {
@@ -79,6 +94,8 @@ nav {
 }
 
 .nav-icons {
+  position: absolute;
+  right: 32px;
   display: flex;
   align-items: center;
   gap: 24px;
@@ -104,10 +121,10 @@ nav {
 .hero-section {
   padding: 64px 32px;
   border-radius: 40px;
-  background-color: #F9F5F0; /* cream */
+  background-color: #EEE0D5; 
   position: relative;
   overflow: hidden;
-  background-color: #EDE0D4;
+  background-color: #ecd9c8;
 }
 
 .hero-content-grid {
@@ -249,7 +266,8 @@ nav {
   border-radius: 4px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   min-width: 160px;
-  z-index: 100;
+  z-index: 9999;
+  display: block;
   padding: 8px 0;
 }
 
