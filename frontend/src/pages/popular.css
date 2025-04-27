@@ -8,16 +8,17 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 /* Title styles */
 .products-title {
   text-align: center;
-  color: #0c463a;
+  color: #2A5A47;
   font-size: 36px;
+  font-weight: 700;
   margin-bottom: 40px;
-  font-weight: bold;
 }
 
 /* Products grid */

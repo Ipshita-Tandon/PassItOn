@@ -51,7 +51,7 @@ const HomePage = () => {
                   <div className="hanging-light">
                     <img src="/images/hanging-light.png" alt="Hanging Light" className="hanging-light-image" />
                   </div>
-                  <img src="/images/books.png" alt="Stack of Books" className="books-image" />
+                  <img src="/images/books5.png" alt="Stack of Books" className="books-image" />
                 </div>
               </div>
             </div>
