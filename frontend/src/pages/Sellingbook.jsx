@@ -63,11 +63,8 @@ const SellingBook = () => {
     setImages([]);
   };
 
-  const categories = [
-    "Fiction", "Non-Fiction", "Mystery", "Romance", "Science Fiction", 
-    "Fantasy", "Biography", "History", "Self-Help", "Children's",
-    "Young Adult", "Poetry", "Comics & Graphic Novels", "Religion & Spirituality",
-    "Business", "Cooking", "Travel", "Art & Photography", "Other"
+  const categories = ["Novels", "Course Books", "PYQs", "Notes", "Stationary"
+    
   ];
 
   return (
