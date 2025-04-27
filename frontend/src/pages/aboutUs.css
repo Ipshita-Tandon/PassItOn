@@ -1,7 +1,7 @@
 /* Base Styles */
 .about-us-container {
     min-height: 100vh;
-    background-color: #F9F5F0;
+    /* background-color: #F9F5F0; */
     overflow: hidden;
     position: relative;
     backdrop-filter: blur(10px);
@@ -37,13 +37,13 @@
   }
   
   .highlight {
-    color: #a87b52;
+    color: #2A5A47;
   }
   
   .divider {
     height: 4px;
     width: 80px;
-    background-color: #a87b52;
+    background-color: #2A5A47;
     margin: 16px auto 0;
     border-radius: 9999px;
   }
