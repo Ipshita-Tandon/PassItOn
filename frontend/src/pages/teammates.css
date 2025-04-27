@@ -210,7 +210,7 @@
   left: -100px;
   right: -100px;
   height: 500px;
-  background: radial-gradient(circle at top center, rgba(12, 70, 58, 0.1), transparent 70%);
+  background: #EEE0D5 /*radial-gradient(circle at top center, rgba(12, 70, 58, 0.1), transparent 70%)*/;
   z-index: 0;
 }
 
