@@ -12,7 +12,7 @@
 body {
   font-family: 'Inter', sans-serif;
 
-  background-color: #F5EEE6;
+  /* background-color: #F5EEE6; */
   /* background-color: #f8f8f8; */
 
   background-color: #F9F5F0;
@@ -124,8 +124,6 @@ nav {
   background-color: #EEE0D5; 
   position: relative;
   overflow: hidden;
-
-  background-color: #EEE0D5;
   background-color: #ecd9c8;
 }
 
