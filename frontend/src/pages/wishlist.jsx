@@ -39,16 +39,11 @@ const Wishlist = () => {
 
   return (
     <div className="wwishlist-container">
-      <header className="wheader">
-        <Link to="/" className="wlogo">
-          <img src="images/logo2.png" alt="PassItOn Logo" className="wlogo-image" />
-          PassItOn
-        </Link>
-      </header>
+
       
       <div className="wwishlist-header">
         <div className="wheart-icon">♥</div>
-        <h1 style={{ color: 'red' }}>My Wishlist</h1>
+        <h1 style={{ color: '#2A5A47' }}>My Wishlist</h1>
       </div>
       
       <div className="wwishlist-table">
