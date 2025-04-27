@@ -340,60 +340,7 @@ const Teammates = () => {
   };
 
   return (
-    <div className="tm-container">
-      {/* Header */}
-      <header className="tm-header">
-        <div className="tm-logo-container">
-          <h1 className="tm-logo">TeamMate</h1>
-        </div>
-        
-        <div className="tm-header-actions">
-          <button className="tm-header-button tm-notification-btn">
-            <span className="tm-icon">🔔</span>
-          </button>
-          
-          <button className="tm-header-button tm-message-btn">
-            <span className="tm-icon">✉️</span>
-          </button>
-          
-          <div className="tm-user-profile" ref={userMenuRef}>
-            <button 
-              className="tm-profile-button"
-              onClick={() => setShowUserMenu(!showUserMenu)}
-            >
-              <div className={`tm-profile-pic tm-status-${projects[0].status}`}>
-                <img 
-                  src="/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png" 
-                  alt="Your profile" 
-                />
-              </div>
-              <span className="tm-icon tm-dropdown-arrow">▼</span>
-            </button>
-            
-            {showUserMenu && (
-              <div className="tm-user-menu">
-                <div className="tm-user-menu-header">
-                  <p className="tm-user-name">Jordan Smith</p>
-                  <p className="tm-user-email">jordan@university.edu</p>
-                </div>
-                <button className="tm-user-menu-item">
-                  <span className="tm-icon">👤</span>
-                  <span>Profile</span>
-                </button>
-                <button className="tm-user-menu-item">
-                  <span className="tm-icon">⚙️</span>
-                  <span>Settings</span>
-                </button>
-                <button className="tm-user-menu-item">
-                  <span className="tm-icon">🚪</span>
-                  <span>Sign out</span>
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-      </header>
-      
+    <div className="tm-container">      
       {/* Hero section */}
       <section className="tm-hero-section">
         <div className="tm-hero-content">
