@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Search, User, ShoppingCart, Accessibility } from 'lucide-react';
+import { Search, User, ShoppingCart, Accessibility, Bell } from 'lucide-react';
+import { useNavigate } from "react-router-dom";  // Import useNavigate
 import ReadAloud from "./readAloud.js";
 import "../pages/homepage.css";
 
@@ -7,6 +8,9 @@ const Navbar = () => {
   const [accessibilityEnabled, setAccessibilityEnabled] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+  
+  // Use useNavigate hook for programmatic navigation
+  const navigate = useNavigate();
 
   const toggleReadAloud = () => {
     setAccessibilityEnabled(!accessibilityEnabled);
@@ -26,6 +30,11 @@ const Navbar = () => {
     };
   }, []);
 
+  // Handle Bell icon click to navigate to /bid
+  const handleBellClick = () => {
+    navigate("/bid");
+  };
+
   return (
     <header className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
       <nav>
@@ -41,19 +50,21 @@ const Navbar = () => {
           <ul className="nav-links">
             <li><a href="/homepage" className="nav-link">Home</a></li>
             <li><a href="/categories" className="nav-link">Categories</a></li>
-            <li><a href="/book-club" className="nav-link">Book Club</a></li>
             <li><a href="/teammates" className="nav-link">Find Teammates</a></li>
             <li><a href="/contact" className="nav-link">Contact Us</a></li>
             <li><a href="/about" className="nav-link">About Us</a></li>
-            <li><a href="/sell" className="nav-link">Sell Item</a></li>
             {/* Removed MyProfile and MyCart from here */}
           </ul>
         </div>
 
         {/* Right side icons */}
         <div className="nav-icons">
-          <button className="icon-button" aria-label="Search">
-            <Search size={24} />
+          <button 
+            className="icon-button" 
+            aria-label="Notifications" 
+            onClick={handleBellClick}  // Add the click handler here
+          >
+            <Bell size={24} />
           </button>
           
           <button
@@ -79,8 +90,8 @@ const Navbar = () => {
                 <a href="/techprofile" className="dropdown-item">
                   <User size={16} className="dropdown-icon" /> My Profile
                 </a>
-                <a href="/mycart" className="dropdown-item">
-                  <ShoppingCart size={16} className="dropdown-icon" /> My Cart
+                <a href="/wishlist" className="dropdown-item">
+                  <ShoppingCart size={16} className="dropdown-icon" /> Wishlist
                 </a>
               </div>
             )}
@@ -93,4 +104,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar;

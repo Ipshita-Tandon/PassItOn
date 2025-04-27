@@ -56,9 +56,9 @@ const BookDetails = () => {
 
   const images = [
     "/lovable-uploads/b2d34808-a22d-4921-9a50-8cb9dbb70e22.png",
-    "/book-cover-1.jpg",
-    "/book-cover-2.jpg",
-    "/book-cover-3.jpg"
+    "https://a.media-amazon.com/images/I/81ZHWRFgTtL._SY522_.jpg",
+    "https://m.media-amazon.com/images/I/71F-PLj+P-L.jpg",
+    "https://a.media-amazon.com/images/I/81xTCrkgxXL.jpg"
   ];
 
   const incrementQuantity = () => setQuantity(quantity + 1);
@@ -83,28 +83,6 @@ const BookDetails = () => {
 
   return (
     <div className="book-details-container">
-
-      <div className="navigation-bar">
-        <div className="logo-container">
-          <img src="/lovable-uploads/d1449ea2-9cac-44d1-8fd0-4aff701d5851.png" alt="" className="logo" />
-        </div>
-        <div className="navigation-links">
-          <Link to="/" className="nav-link">Home</Link>
-          <a href="#" className="nav-link">Categories</a>
-          <a href="#" className="nav-link">Book Club</a>
-          <a href="#" className="nav-link">Contact Us</a>
-          <a href="#" className="nav-link">About Us</a>
-        </div>
-        <div className="navigation-icons">
-          <div className="search-icon"><Search className="icon" /></div>
-          <div className="accessibility-icon"><span className="icon">i</span></div>
-          <div className="cart-icon"><ShoppingCart className="icon" /></div>
-          <div className="profile-icon"><User className="icon" /></div>
-        </div>
-      </div>
-
-
-
       <div className="breadcrumb">
         <Link to="/" className="breadcrumb-link">Home</Link>
         <span className="breadcrumb-separator">›</span>

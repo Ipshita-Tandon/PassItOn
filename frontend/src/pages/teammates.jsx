@@ -47,7 +47,7 @@ const Teammates = () => {
       currentMembers: 2,
       postedBy: 'Harnoor Kaur',
       postedDate: '2023-10-20',
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
+      avatarUrl: 'https://i.pinimg.com/736x/e9/2e/80/e92e80f8169cfd610312ec7bc49f2a91.jpg',
       status: 'online',
       bookmarked: false
     },
@@ -61,7 +61,7 @@ const Teammates = () => {
       currentMembers: 1,
       postedBy: 'Geet Kaushik',
       postedDate: '2023-10-18',
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
+      avatarUrl: 'https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ=',
       status: 'busy',
       bookmarked: true
     },
@@ -73,9 +73,9 @@ const Teammates = () => {
       deadline: '2024-01-10',
       teamSize: 5,
       currentMembers: 3,
-      postedBy: 'Shanti Priya',
+      postedBy: 'Shrey Saxena',
       postedDate: '2023-10-15',
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
+      avatarUrl: 'https://i.pinimg.com/474x/eb/76/a4/eb76a46ab920d056b02d203ca95e9a22.jpg',
       status: 'offline',
       bookmarked: false
     },
@@ -89,7 +89,7 @@ const Teammates = () => {
       currentMembers: 1,
       postedBy: 'Naina Talwar',
       postedDate: '2023-10-10',
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
+      avatarUrl: 'https://i.pinimg.com/474x/9c/bd/74/9cbd744294b488939adc6b861898117a.jpg',
       status: 'online',
       bookmarked: true
     }
@@ -103,7 +103,7 @@ const Teammates = () => {
       skills: ['Machine Learning', 'Python', 'Data Science'],
       major: 'Computer Science',
       year: 'Junior',
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
+      avatarUrl: 'https://i.pinimg.com/474x/9c/bd/74/9cbd744294b488939adc6b861898117a.jpg',
       status: 'online',
       bio: 'Passionate about AI and its applications in education. Looking to collaborate on innovative projects!',
       projects: 12,
@@ -115,7 +115,7 @@ const Teammates = () => {
       skills: ['UI/UX Design', 'React', 'Mobile Development'],
       major: 'Digital Media Design',
       year: 'Senior',
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
+      avatarUrl: 'https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ=',
       status: 'busy',
       bio: 'UI/UX designer with a focus on creating intuitive and accessible interfaces for educational platforms.',
       projects: 8,
@@ -123,11 +123,11 @@ const Teammates = () => {
     },
     {
       id: 3,
-      name: 'Shanti Priya',
+      name: 'Shrey Saxena',
       skills: ['React', 'Node.js', 'Product Management'],
       major: 'Information Systems',
       year: 'Graduate Student',
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
+      avatarUrl: 'https://i.pinimg.com/474x/eb/76/a4/eb76a46ab920d056b02d203ca95e9a22.jpg',
       status: 'offline',
       bio: 'Full-stack developer with 3 years of experience. Interested in EdTech and collaborative learning platforms.',
       projects: 15,
@@ -139,7 +139,7 @@ const Teammates = () => {
       skills: ['Blockchain', 'JavaScript', 'Cloud Computing'],
       major: 'Computer Engineering',
       year: 'Senior',
-      avatarUrl: '/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png',
+      avatarUrl: 'https://media.istockphoto.com/id/1437816897/photo/business-woman-manager-or-human-resources-portrait-for-career-success-company-we-are-hiring.jpg?s=612x612&w=0&k=20&c=tyLvtzutRh22j9GqSGI33Z4HpIwv9vL_MZw_xOE19NQ=',
       status: 'online',
       bio: 'Exploring the intersection of blockchain technology and education. Looking for innovative hackathon teams!',
       projects: 10,
@@ -340,60 +340,7 @@ const Teammates = () => {
   };
 
   return (
-    <div className="tm-container">
-      {/* Header */}
-      <header className="tm-header">
-        <div className="tm-logo-container">
-          <h1 className="tm-logo">TeamMate</h1>
-        </div>
-        
-        <div className="tm-header-actions">
-          <button className="tm-header-button tm-notification-btn">
-            <span className="tm-icon">🔔</span>
-          </button>
-          
-          <button className="tm-header-button tm-message-btn">
-            <span className="tm-icon">✉️</span>
-          </button>
-          
-          <div className="tm-user-profile" ref={userMenuRef}>
-            <button 
-              className="tm-profile-button"
-              onClick={() => setShowUserMenu(!showUserMenu)}
-            >
-              <div className={`tm-profile-pic tm-status-${projects[0].status}`}>
-                <img 
-                  src="/lovable-uploads/98011149-1e99-4d24-a587-063f0f72172d.png" 
-                  alt="Your profile" 
-                />
-              </div>
-              <span className="tm-icon tm-dropdown-arrow">▼</span>
-            </button>
-            
-            {showUserMenu && (
-              <div className="tm-user-menu">
-                <div className="tm-user-menu-header">
-                  <p className="tm-user-name">Jordan Smith</p>
-                  <p className="tm-user-email">jordan@university.edu</p>
-                </div>
-                <button className="tm-user-menu-item">
-                  <span className="tm-icon">👤</span>
-                  <span>Profile</span>
-                </button>
-                <button className="tm-user-menu-item">
-                  <span className="tm-icon">⚙️</span>
-                  <span>Settings</span>
-                </button>
-                <button className="tm-user-menu-item">
-                  <span className="tm-icon">🚪</span>
-                  <span>Sign out</span>
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-      </header>
-      
+    <div className="tm-container">      
       {/* Hero section */}
       <section className="tm-hero-section">
         <div className="tm-hero-content">

@@ -1,0 +1,170 @@
+.wwishlist-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #F5EEE6;
+  min-height: 100vh;
+}
+
+.wheader {
+  margin-bottom: 20px;
+}
+
+.wlogo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.wlogo-image {
+  height: 40px;
+  width: auto;
+}
+
+.wwishlist-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.wheart-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: #ea384c;
+}
+
+.wfancy-title {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 48px;
+  color: #ea384c;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 2px;
+}
+
+.wwishlist-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.wtable-header {
+  display: grid;
+  grid-template-columns: 60px 2fr 1fr 0.5fr 1fr 1.5fr;
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: white;
+}
+
+.wcolumn-header {
+  color: #333;
+  font-weight: bold;
+  text-align: left;
+}
+
+.wtable-row {
+  display: grid;
+  grid-template-columns: 60px 2fr 1fr 0.5fr 1fr 1.5fr;
+  align-items: center;
+  padding: 20px 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.wdelete-icon {
+  color: #8E9196;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.wdelete-icon:hover {
+  color: #ea384c;
+}
+
+.wproduct-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.wproduct-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.wprice-info {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/*.woriginal-price {
+  text-decoration: line-through;
+  color: #8E9196;
+}*/
+
+.wsale-price {
+  color: #333;
+  font-weight: bold;
+}
+
+.wquantity {
+  text-align: center;
+}
+
+.wstock-status {
+  color: #4CAF50;
+}
+
+.waction-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wdate-added {
+  color: #8E9196;
+  font-size: 14px;
+}
+
+.wsee-more {
+  background-color: #5C9F9F;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.wsee-more:hover {
+  background-color: #4a8080;
+}
+
+@media (max-width: 768px) {
+  .wtable-header,
+  .wtable-row {
+    grid-template-columns: 60px 1fr;
+    gap: 10px;
+  }
+
+  .wcolumn-header:not(:first-child):not(:nth-child(2)),
+  .wprice-info,
+  .wstock-status,
+  .wquantity {
+    display: none;
+  }
+
+  .waction-column {
+    grid-column: 2;
+  }
+}
