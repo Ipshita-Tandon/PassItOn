@@ -1,20 +1,22 @@
 .contact-seller-btn {
-  background-color: #4CAF50;
+  background-color: #00574B; /* Dark teal, matching Add to Cart */
   color: white;
   border: none;
-  padding: 10px 15px;
-  margin-left: 10px;
-  border-radius: 4px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 14px;
-  display: flex;
+  font-size: 16px;
+  font-weight: 500;
+  display: inline-flex;
   align-items: center;
-  gap: 5px;
-  transition: background-color 0.3s;
+  justify-content: center;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .contact-seller-btn:hover {
-  background-color: #45a049;
+  background-color: #00574B; /* Slightly darker teal on hover */
+  transform: scale(1.02);
 }
 
 .contact-seller-btn:disabled,
@@ -24,5 +26,5 @@
 }
 
 .contact-seller-btn.loading {
-  background-color: #2196F3;
+  background-color: #0284c7; /* Light blue when loading */
 }
