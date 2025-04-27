@@ -11,7 +11,12 @@
 
 body {
   font-family: 'Inter', sans-serif;
+
+  background-color: #F5EEE6;
+  /* background-color: #f8f8f8; */
+
   background-color: #F9F5F0;
+
   color: #2D3436;
   min-height: 100vh;
 }
@@ -116,7 +121,7 @@ nav {
 .hero-section {
   padding: 64px 32px;
   border-radius: 40px;
-  background-color: #F9F5F0; /* cream */
+  background-color: #EEE0D5; 
   position: relative;
   overflow: hidden;
   background-color: #ecd9c8;
