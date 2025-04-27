@@ -12,10 +12,15 @@
 body {
   font-family: 'Inter', sans-serif;
   background-color: #F9F5F0;
-  /* background-color: #f8f8f8; */
   color: #2D3436;
   min-height: 100vh;
 }
+
+header {
+  position: relative;
+  z-index: 1000;
+}
+
 
 /* Container and layout */
 .container {
@@ -34,6 +39,7 @@ nav {
   margin-bottom: 44px;
   padding: 16px 32px;
   position: relative; /* So right icons can be positioned */
+  z-index: 1000;
 }
 
 .nav-left {
@@ -113,7 +119,7 @@ nav {
   background-color: #F9F5F0; /* cream */
   position: relative;
   overflow: hidden;
-  background-color: #EDE0D4;
+  background-color: #ecd9c8;
 }
 
 .hero-content-grid {
@@ -255,7 +261,8 @@ nav {
   border-radius: 4px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   min-width: 160px;
-  z-index: 100;
+  z-index: 9999;
+  display: block;
   padding: 8px 0;
 }
 
