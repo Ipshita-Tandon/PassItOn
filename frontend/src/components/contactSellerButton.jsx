@@ -2,19 +2,18 @@ import React, { useState, useEffect } from 'react';
 import sendContactEmail from '../emailService.js';
 import { useParams } from 'react-router-dom';
 import supabase from '../supabase/supabase';
+import './contactSellerButton.css';
 
 const ContactSellerButton = ({ book }) => {
   const [showInput, setShowInput] = useState(false);
   const [loading, setLoading] = useState(false);
   const [sellerEmail, setSellerEmail] = useState('');
   const [buyerEmail, setBuyerEmail] = useState('');
-  const { id } = useParams(); // Optional, depending on how you're using it
+  const { id } = useParams();
 
-  // Fetch seller email on mount
   useEffect(() => {
     const fetchSellerData = async () => {
       try {
-        console.log('Fetching seller data for book with ID:', book.id);
         const { data: sellerData, error } = await supabase
           .from('Products')
           .select('SellerEmail')
@@ -38,14 +37,8 @@ const ContactSellerButton = ({ book }) => {
     }
   }, [book]);
 
-  // Handle sending the email
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-  console.log('Buyer Email:', buyerEmail);
-  console.log('Seller Email:', sellerEmail);
-
- 
 
     if (!sellerEmail || !buyerEmail) {
       alert('Missing email information.');
@@ -65,6 +58,8 @@ const ContactSellerButton = ({ book }) => {
       const response = await sendContactEmail(emailData);
       console.log('Email sent:', response);
       alert('Your message has been sent to the seller!');
+      setShowInput(false); // Hide form after sending
+      setBuyerEmail(''); // Clear input
     } catch (error) {
       console.error('Error sending email:', error);
       alert('There was an error sending the message.');
@@ -74,7 +69,7 @@ const ContactSellerButton = ({ book }) => {
   };
 
   return (
-    <div>
+    <div style={{ marginTop: '10px' }}>
       <button
         className="contact-seller-btn"
         onClick={() => setShowInput(true)}
@@ -84,16 +79,36 @@ const ContactSellerButton = ({ book }) => {
       </button>
 
       {showInput && (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} style={{ marginTop: '10px', display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '300px' }}>
           <input
             type="email"
             placeholder="Enter your email"
             value={buyerEmail}
             onChange={(e) => setBuyerEmail(e.target.value)}
             required
+            style={{
+              padding: '10px',
+              borderRadius: '8px',
+              border: '1px solid #ccc',
+              fontSize: '14px',
+            }}
           />
-          <button type="submit" disabled={loading}>
-            Send Email
+          <button
+            type="submit"
+            disabled={loading}
+            style={{
+              backgroundColor: '#0f766e',
+              color: 'white',
+              border: 'none',
+              padding: '10px',
+              borderRadius: '8px',
+              cursor: loading ? 'not-allowed' : 'pointer',
+              fontSize: '16px',
+              fontWeight: '500',
+              transition: 'background-color 0.3s',
+            }}
+          >
+            {loading ? 'Sending...' : 'Send Email'}
           </button>
         </form>
       )}
@@ -102,6 +117,7 @@ const ContactSellerButton = ({ book }) => {
 };
 
 export default ContactSellerButton;
+
 
 
 
