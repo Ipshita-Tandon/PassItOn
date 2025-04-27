@@ -41,7 +41,7 @@ const BiddingWar = () => {
       <div className="bidding-war-content-wrapper">
         <div className="bidding-war-header">
           <Book className="bidding-war-icon" />
-          <h1 className="bidding-war-heading">Book Bidding War</h1>
+          <h1 className="bidding-war-heading">Current Bids</h1>
           <p className="bidding-war-description">
             Accept or decline bids from potential buyers. The highest bid appears at the top.
           </p>

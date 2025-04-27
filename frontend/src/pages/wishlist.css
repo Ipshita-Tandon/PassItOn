@@ -16,7 +16,7 @@
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  color: #333;
+  color: #2A5A47;
   font-size: 24px;
   font-weight: bold;
 }
@@ -34,13 +34,13 @@
 .wheart-icon {
   font-size: 40px;
   margin-bottom: 10px;
-  color: #ea384c;
+  color: #2A5A47;
 }
 
 .wfancy-title {
   font-family: 'Brush Script MT', cursive;
   font-size: 48px;
-  color: #ea384c;
+  color: #2A5A47;
   margin: 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   letter-spacing: 2px;
@@ -85,7 +85,7 @@
 }
 
 .wdelete-icon:hover {
-  color: #ea384c;
+  color: #2A5A47;
 }
 
 .wproduct-info {
