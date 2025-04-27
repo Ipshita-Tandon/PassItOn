@@ -9,6 +9,7 @@ const ContactSellerButton = ({ book }) => {
   const [loading, setLoading] = useState(false);
   const [sellerEmail, setSellerEmail] = useState('');
   const [buyerEmail, setBuyerEmail] = useState('');
+  const [bidAmount, setBidAmount] = useState(''); // <-- Added state for bid input
   const { id } = useParams();
 
   useEffect(() => {
@@ -58,8 +59,9 @@ const ContactSellerButton = ({ book }) => {
       const response = await sendContactEmail(emailData);
       console.log('Email sent:', response);
       alert('Your message has been sent to the seller!');
-      setShowInput(false); // Hide form after sending
-      setBuyerEmail(''); // Clear input
+      setShowInput(false);
+      setBuyerEmail('');
+      setBidAmount(''); // <-- Reset bid input
     } catch (error) {
       console.error('Error sending email:', error);
       alert('There was an error sending the message.');
@@ -79,7 +81,16 @@ const ContactSellerButton = ({ book }) => {
       </button>
 
       {showInput && (
-        <form onSubmit={handleSubmit} style={{ marginTop: '10px', display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '300px' }}>
+        <form
+          onSubmit={handleSubmit}
+          style={{
+            marginTop: '10px',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '10px',
+            maxWidth: '300px',
+          }}
+        >
           <input
             type="email"
             placeholder="Enter your email"
@@ -93,6 +104,20 @@ const ContactSellerButton = ({ book }) => {
               fontSize: '14px',
             }}
           />
+
+          <input
+            type="text"
+            placeholder="Add bid"
+            value={bidAmount}
+            onChange={(e) => setBidAmount(e.target.value)}
+            style={{
+              padding: '10px',
+              borderRadius: '8px',
+              border: '1px solid #ccc',
+              fontSize: '14px',
+            }}
+          />
+
           <button
             type="submit"
             disabled={loading}
@@ -117,9 +142,3 @@ const ContactSellerButton = ({ book }) => {
 };
 
 export default ContactSellerButton;
-
-
-
-
-
-
